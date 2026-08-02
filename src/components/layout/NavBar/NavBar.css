@@ -1,0 +1,7 @@
+.navigation-bar {
+    display: flex;
+    background-color: #231E16;
+    padding: 0 32px;
+
+    border-bottom: 1px solid var(--border-default);
+}
