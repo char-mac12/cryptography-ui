@@ -1,0 +1,16 @@
+.input-type-badge {
+    display: inline-flex;
+    align-items: center;
+
+    background-color: #231E16;
+    border: 1px solid #352D1D;
+    border-radius: 0.15rem;
+    color: #6D5C41;
+
+    padding: 0.2rem 0.5rem;
+    margin: 1rem 0rem;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+}

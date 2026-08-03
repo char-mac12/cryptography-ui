@@ -1,0 +1,8 @@
+.results-count {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    font-weight: 50;
+    font-family: var(--font-body);
+
+    margin-right: 1rem;
+}

@@ -1,0 +1,14 @@
+.cipher-tag {
+    display: inline-flex;
+    align-items: center;
+
+    background-color: #2A2218;
+    border-radius: 0.15rem;
+    color: #6D5C41;
+
+    padding: 0.2rem 0.5rem;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+}

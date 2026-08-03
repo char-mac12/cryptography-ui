@@ -1,0 +1,13 @@
+.search-panel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: #231E16;
+
+    margin-bottom: 1rem;
+}
+
+.search-panel .search-bar {
+    flex: 1;
+}

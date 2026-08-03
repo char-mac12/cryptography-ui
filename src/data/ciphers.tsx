@@ -1,0 +1,26 @@
+export const ciphers = [
+  {
+    id: "caesar",
+    title: "Caesar Cipher",
+    status: "Broken",
+    difficulty: "Beginner",
+    category: "Monoalphabetic Cipher",
+    origin: "c. 100 BCE • Roman Empire",
+    description: "A substitution cipher which shifts each letter by a fixed number of positions in the alphabet. One of the simplest and most widely known encryption techniques.",
+    inputTypes: ["Text"],
+    hasVisualisation: true,
+    tags: ["Educational", "Symmetric", "Beginner"],
+  },
+  {
+    id: "vigenere",
+    title: "Vigenère Cipher",
+    status: "Broken",
+    difficulty: "Intermediate",
+    category: "Polyalphabetic Cipher",
+    origin: "1553 • France",
+    description: "...",
+    inputTypes: ["Text"],
+    hasVisualisation: false,
+    tags: ["Educational", "Symmetric"],
+  },
+];

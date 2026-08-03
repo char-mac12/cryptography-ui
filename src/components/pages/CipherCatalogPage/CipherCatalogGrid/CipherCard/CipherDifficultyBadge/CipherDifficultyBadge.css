@@ -1,0 +1,7 @@
+.cipher-difficulty-badge {
+    color: #549667;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+}

@@ -1,0 +1,16 @@
+.cipher-status-badge {
+    display: inline-flex;
+    align-items: center;
+
+    background-color: #2A1C15;
+    border: 1px solid #43261C;
+    border-radius: 0.15rem;
+    color: #94482F;
+
+    padding: 0.2rem 0.5rem;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+}

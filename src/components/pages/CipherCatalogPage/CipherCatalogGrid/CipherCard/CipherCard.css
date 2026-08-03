@@ -1,0 +1,73 @@
+.cipher-card {
+    background-color: #161310;
+    border: 1px solid #2E281A;
+    padding: 1.4rem;
+
+    transition: border-color 0.2s ease;
+}
+
+.cipher-card:hover {
+    border-color: var(--accent-primary);
+
+}
+
+.cipher-card:hover .open-tool-button {
+    background-color: var(--accent-primary);
+    color: #161310;
+    border-color: var(--accent-primary);
+}
+
+.cipher-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.visualisation-symbol {
+    color: #755F37;
+    padding: 0.6rem;
+}
+
+.cipher-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cipher-title {
+    font-family: var(--font-title);
+    font-weight: 100;
+
+    padding: 1rem 0rem 0.2rem 0rem;
+}
+
+.cipher-category {
+    color: #755F37;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+.cipher-origin {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    padding: 1rem 0rem 1rem 0rem;
+}
+
+.cipher-description {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+}
+
+.cipher-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cipher-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 70%;
+}

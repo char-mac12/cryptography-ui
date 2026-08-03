@@ -1,0 +1,13 @@
+.sidebar-toggle-button {
+    background-color: #161310;
+    border: transparent;
+    outline: transparent;
+
+    padding: 0.4rem 0.6rem;
+    margin-left: 1rem;
+
+    font-size: 0.85rem;
+    color: var(--text-muted);
+
+    cursor: pointer;
+}

@@ -14,6 +14,10 @@ const navItems = [
         description: "Browse All"
     },
     {
+        title: "Workshop",
+        description: "Encrypt & Decrypt"
+    },
+    {
         title: "Frequency Analysis",
         description: "Statistical Tools"
     },

@@ -18,7 +18,8 @@
     margin: 0;
 
     color: var(--text-heading);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     font-family: var(--font-title);
 }
 
@@ -32,9 +33,6 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
 }
-
-
-/* Selected */
 
 .nav-item.selected {
     border-bottom-color: var(--accent-primary);
