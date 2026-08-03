@@ -1,5 +1,5 @@
 .footer {
-    background: #161310;
+    background: var(--bg-card);
     border-top: 1px solid var(--border-default);
 
     margin-top: auto;
