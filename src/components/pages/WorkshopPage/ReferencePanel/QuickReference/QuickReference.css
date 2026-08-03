@@ -1,0 +1,18 @@
+.reference-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.reference-row span:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.reference-value {
+    flex: 0 0 3rem;
+    text-align: right;
+
+    color: var(--accent-primary);
+    font-weight: 600;
+}

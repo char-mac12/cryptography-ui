@@ -1,0 +1,56 @@
+.cipher-selector-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.cipher-selector {
+    width: 100%;
+
+    background-color: #161310;
+    color: var(--accent-primary);
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+
+    transition: border-color 0.2s ease;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.cipher-selector:hover {
+    border-color: var(--accent-hover);
+}
+
+.cipher-selector:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.cipher-selector-arrow {
+    position: absolute;
+
+    right: 0.9rem;
+    top: 50%;
+
+    transform: translateY(-80%);
+
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+.cipher-selector:focus + .cipher-selector-arrow {
+    transform: translateY(-60%) rotate(180deg);
+}
