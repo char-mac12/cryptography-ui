@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .text-box label {
@@ -26,7 +28,8 @@
 }
 
 .text-box textarea {
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     height: 180px;
     resize: vertical;
 }
