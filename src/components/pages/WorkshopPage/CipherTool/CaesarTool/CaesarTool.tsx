@@ -60,9 +60,11 @@ function CaesarTool() {
         }
     }, [shift]);
 
+    const infoPanelText = "A monoalphabetic substitution cipher which shifts each letter by a fixed number of positions in the alphabet. One of the simplest and most widely known encryption techniques."
+
     return (
         <div className="caesar-tool">
-            <InfoPanel text="Here is some text about stuff." />
+            <InfoPanel text={infoPanelText} />
 
             <CipherModeSelector mode={mode} setMode={setMode} />
             <ShiftKeySlider shift={shift} setShift={setShift} />
