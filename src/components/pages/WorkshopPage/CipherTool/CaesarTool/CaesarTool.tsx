@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import CipherModeSelector from '../Shared/CipherModeSelector/CipherModeSelector'
 import CipherTextArea from '../CipherTextArea/CipherTextArea'
 import ConversionSection from '../ConversionSection/ConversionSection'
-// import FrequencySection from '../FrequencySection/FrequencySection'
+import FrequencySection from '../FrequencySection/FrequencySection'
 import InfoPanel from '../Shared/InfoPanel/InfoPanel'
 import ShiftKeySlider from '../Shared/ShiftKeySlider/ShiftKeySlider'
 import './CaesarTool.css'
@@ -89,10 +89,11 @@ function CaesarTool() {
                 mode={mode}
             />
 
-            {/* <FrequencySection 
+            <FrequencySection 
+                mode={mode}
                 plaintext={plaintext}
                 ciphertext={ciphertext}
-            /> */}
+            />
         </div>
     )
 }

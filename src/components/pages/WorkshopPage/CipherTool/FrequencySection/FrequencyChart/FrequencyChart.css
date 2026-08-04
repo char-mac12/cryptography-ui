@@ -1,0 +1,69 @@
+.frequency-chart {
+    margin: 1rem 0;
+}
+
+.frequency-chart h3 {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+
+.frequency-histogram {
+    display: flex;
+    align-items: flex-end;
+
+    height: 160px;
+
+    gap: 0.25rem;
+
+    border-bottom: 1px solid var(--border-default);
+}
+
+
+.frequency-column {
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 0.4rem;
+
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+}
+
+
+.frequency-bar-container {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.frequency-bar {
+    width: 100%;
+
+    background: var(--accent-primary);
+
+    min-height: 0;
+
+    transition:
+        height 0.3s ease,
+        background 0.2s ease;
+}
+
+
+.frequency-column:hover .frequency-bar {
+    background: var(--accent-hover);
+}
