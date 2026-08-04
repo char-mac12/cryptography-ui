@@ -71,7 +71,7 @@ function LetterConversionTable({
                     <tr key={row.char}>
                         <td>{row.char}</td>
                         <td>{row.position}</td>
-                        <td>{row.shift}</td>
+                        <td>{mode === 'encrypt' ? '+' : '-'} {row.shift}</td>
                         <td>{row.calculation}</td>
                         <td>
                             {row.wrapped && "↺ "}

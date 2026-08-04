@@ -6,6 +6,7 @@ import FrequencySection from '../FrequencySection/FrequencySection'
 import InfoPanel from '../Shared/InfoPanel/InfoPanel'
 import ShiftKeySlider from '../Shared/ShiftKeySlider/ShiftKeySlider'
 import './CaesarTool.css'
+import CaesarBruteForceDecrypter from './CaesarBruteForceDecrypter/CaesarBruteForceDecrypter'
 // import CaesarWheelPanel from './CaesarWheelPanel/CaesarWheelPanel'
 
 function CaesarTool() {
@@ -96,6 +97,10 @@ function CaesarTool() {
                 plaintext={plaintext}
                 ciphertext={ciphertext}
             />
+
+            {mode === 'decrypt' &&
+                <CaesarBruteForceDecrypter ciphertext={ciphertext}/>
+            }
         </div>
     )
 }
