@@ -1,44 +1,34 @@
-import NavItem from "./NavItem"
-import './NavBar.css'
+import "./NavBar.css";
+import NavItem from "./NavItem";
 
-interface NavBarProps {
-    selectedPage: string
-    setSelectedPage: (page: string) => void
-}
-
-const navItems = [
-    {
-        title: "Cipher Catalog",
-        description: "Browse All"
-    },
-    {
-        title: "Workshop",
-        description: "Encrypt & Decrypt"
-    },
-    {
-        title: "Frequency Analysis",
-        description: "Statistical Tools"
-    },
-    {
-        title: "Reference",
-        description: "Tables & History"
-    }
-]
-
-function NavBar(props: NavBarProps) {
+function NavBar() {
     return (
-        <div className="navigation-bar">
-            {navItems.map((item) => (
-                <NavItem
-                    key={item.title}
-                    title={item.title}
-                    description={item.description}
-                    isSelected={props.selectedPage === item.title}
-                    onClick={() => props.setSelectedPage(item.title)}
-                />
-            ))}
-        </div>
+        <nav className="navigation-bar">
+            <NavItem
+                title="Cipher Catalog"
+                description="Explore classical ciphers"
+                path="/catalog"
+            />
+
+            <NavItem
+                title="Workshop"
+                description="Encrypt and decrypt messages"
+                path="/workshop/caesar"
+            />
+
+            <NavItem
+                title="Frequency Analysis"
+                description="Analyse letter patterns"
+                path="/frequency"
+            />
+
+            <NavItem
+                title="Reference"
+                description="Learn about cryptography"
+                path="/reference"
+            />
+        </nav>
     )
 }
 
-export default NavBar
+export default NavBar;

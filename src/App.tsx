@@ -1,46 +1,55 @@
-import { useState } from 'react'
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import Footer from './components/layout/Footer/Footer'
 import Header from './components/layout/Header/Header'
 import NavBar from './components/layout/NavBar/NavBar'
+
 import CipherCatalogPage from './components/pages/CipherCatalogPage/CipherCatalogPage'
 import WorkshopPage from './components/pages/WorkshopPage/WorkshopPage'
 import FrequencyAnalysisPage from './components/pages/FrequencyAnalysisPage/FrequencyAnalysisPage'
 import ReferencePage from './components/pages/ReferencePage/ReferencePage'
 
 function App() {
-    const [selectedPage, setSelectedPage] = useState("Cipher Catalog")
+    return (
+        <BrowserRouter>
+            <div className="site">
+                <Header />
 
-    function renderPage() {
-        switch (selectedPage) {
-            case "Cipher Catalog":
-                return <CipherCatalogPage />
-            case "Workshop":
-                return <WorkshopPage />
-            case "Frequency Analysis":
-                return <FrequencyAnalysisPage />
-            case "Reference":
-                return <ReferencePage />
-            default: 
-                return <CipherCatalogPage />
-        }
-    }
+                <NavBar />
 
-  return (
-      <div className="site">
-          <Header />
-          
-          <NavBar
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-          />
+                <main>
+                    <Routes>
+                        <Route 
+                            path="/catalog" 
+                            element={<CipherCatalogPage />} 
+                        />
 
-          <main>
-              {renderPage()}
-          </main>
+                        <Route 
+                            path="/workshop/:cipherId" 
+                            element={<WorkshopPage />} 
+                        />
 
-          <Footer />
-      </div>
+                        <Route 
+                            path="/frequency" 
+                            element={<FrequencyAnalysisPage />} 
+                        />
+
+                        <Route 
+                            path="/reference" 
+                            element={<ReferencePage />} 
+                        />
+
+                        <Route 
+                            path="*" 
+                            element={<CipherCatalogPage />} 
+                        />
+                    </Routes>
+                </main>
+
+                <Footer />
+            </div>
+        </BrowserRouter>
     )
 }
 

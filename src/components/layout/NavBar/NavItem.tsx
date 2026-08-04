@@ -1,21 +1,23 @@
+import { NavLink } from "react-router-dom";
 import "./NavItem.css"
 
 interface NavItemProps {
     title: string
     description: string
-    isSelected: boolean
-    onClick: () => void
+    path: string
 }
 
 function NavItem(props: NavItemProps) {
     return (
-        <button
-            className={props.isSelected ? "nav-item selected" : "nav-item"}
-            onClick={props.onClick}
+        <NavLink
+            className={({ isActive }) =>
+                isActive ? "nav-item selected" : "nav-item"
+            }
+            to={props.path}
         >
             <h3>{props.title}</h3>
             <p>{props.description}</p>
-        </button>
+        </NavLink>
     )
 }
 

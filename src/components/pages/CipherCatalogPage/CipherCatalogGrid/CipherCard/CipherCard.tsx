@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import type { Cipher } from "../../../../../types/Cipher"
 import CipherDifficultyBadge from "./CipherDifficultyBadge/CipherDifficultyBadge"
 import CipherStatusBadge from "./CipherStatusBadge/CipherStatusBadge"
@@ -7,6 +8,8 @@ import OpenToolButton from "./OpenToolButton/OpenToolButton"
 import './CipherCard.css'
 
 function CipherCard({ cipher }: { cipher: Cipher} ) {
+    const navigate = useNavigate();
+    
     return (
         <div className="cipher-card">
             <div className="cipher-card-header">
@@ -44,7 +47,9 @@ function CipherCard({ cipher }: { cipher: Cipher} ) {
                         </CipherTag>
                     ))}
                 </div>
-                <OpenToolButton />
+                <OpenToolButton 
+                    onClick={() => navigate(`/workshop/${cipher.id}`)} 
+                />
             </div>
 
         </div>
