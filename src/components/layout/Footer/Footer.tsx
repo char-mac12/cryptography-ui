@@ -1,4 +1,4 @@
-import logo from '../../../assets/vite.svg'
+import logo from '../../../assets/crypto.png'
 import './Footer.css'
 
 function Footer() {

@@ -1,0 +1,5 @@
+.note-symbol {
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-right: 1rem;
+}

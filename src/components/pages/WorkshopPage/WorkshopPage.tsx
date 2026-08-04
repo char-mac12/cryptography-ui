@@ -13,7 +13,7 @@ function WorkshopPage() {
     );
 
     return (
-        <div className="workshop-page">
+        <section className="workshop-page">
             <div className="workshop-content">
                 <div className="workshop-main">
                     <h1>Workshop</h1>
@@ -27,7 +27,7 @@ function WorkshopPage() {
                 </div>
             </div>
             <ReferencePanel />
-        </div>
+        </section>
     )
 }
 
