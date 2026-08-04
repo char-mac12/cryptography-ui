@@ -37,7 +37,6 @@ function CipherTextArea({
                 title={isEncrypt ? 'Ciphertext' : 'Plaintext'}
                 value={isEncrypt ? ciphertext : plaintext}
                 placeholder="Output will appear here..."
-                onChange={isEncrypt ? setCiphertext : setPlaintext}
                 readOnly={true}
             />
         </div>

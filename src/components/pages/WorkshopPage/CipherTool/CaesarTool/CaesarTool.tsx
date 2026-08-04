@@ -32,11 +32,10 @@ function CaesarTool() {
     }
 
     const handleSwap = () => {
-        setPlaintext(ciphertext);
-        setCiphertext(plaintext);
-
-        setMode(mode === 'encrypt' ? 'decrypt' : 'encrypt')
-    }
+        setMode((currentMode) =>
+            currentMode === 'encrypt' ? 'decrypt' : 'encrypt'
+        );
+    };
 
     const caesar = (text: string, shift: number) => {
         return text
