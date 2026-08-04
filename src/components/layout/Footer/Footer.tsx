@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from '../../../assets/crypto.png'
 import './Footer.css'
 
@@ -16,9 +17,21 @@ function Footer() {
                 </div>
                 <div className="nav-section">
                     <h4>Tools</h4>
-                    <p>Cipher Catalog</p>
-                    <p>Frequency Analysis</p>
-                    <p>Reference Tables</p>
+                    <Link to="/catalog">
+                        Cipher Catalog
+                    </Link>
+                    <p></p>
+                    <Link to="/workshop/caesar">
+                        Workshop
+                    </Link>
+                    <p></p>
+                    <Link to="/frequency">
+                        Frequency Analysis
+                    </Link>
+                    <p></p>
+                    <Link to="/reference">
+                        Reference Tables
+                    </Link>
                 </div>
                 <div className="about-section">
                     <h4>About</h4>
