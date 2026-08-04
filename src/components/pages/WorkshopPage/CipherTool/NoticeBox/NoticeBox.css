@@ -1,0 +1,12 @@
+.notice-box {
+    background-color: #2A2218;
+
+    padding: 1rem;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin: 1rem 0;
+
+    color: var(--text-muted);
+    font-family: var(--font-info);
+}

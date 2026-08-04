@@ -1,0 +1,44 @@
+.letter-conversion-table {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+
+    border-collapse: collapse;
+}
+
+.letter-conversion-table th {
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.letter-conversion-table td {
+    color: var(--text-muted);
+    text-align: left;
+    white-space: nowrap;
+
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.letter-conversion-table th:not(:first-child),
+.letter-conversion-table td:not(:first-child) {
+    padding-left: 1.5rem;
+}
+
+/* Plaintext letter */
+.letter-conversion-table td:first-child {
+    color: var(--text-heading);
+}
+
+/* Ciphertext result */
+.letter-conversion-table td:nth-last-child(2) {
+    color: var(--status-success);
+}

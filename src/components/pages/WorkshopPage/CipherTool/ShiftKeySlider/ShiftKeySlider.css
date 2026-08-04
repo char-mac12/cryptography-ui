@@ -1,0 +1,39 @@
+.shift-key-slider {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+
+    margin: 1rem 0;
+}
+
+.shift-key-slider label {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+
+.shift-key-slider input[type="range"] {
+    margin: 0rem;
+
+    accent-color: var(--accent-primary);
+}
+
+.shift-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.shift-value {
+    color: var(--accent-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.shift-mapping {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+}

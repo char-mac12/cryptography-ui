@@ -16,6 +16,10 @@ function QuickReference() {
                 <span>Most common English trigraph</span>
                 <span className="reference-value">THE</span>
             </div>
+            <div className="reference-row">
+                <span>Most common English double letter</span>
+                <span className="reference-value">LL</span>
+            </div>
         </ReferenceBox>
     );
 }

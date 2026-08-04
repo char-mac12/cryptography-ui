@@ -1,0 +1,44 @@
+.text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.text-box label {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.text-box textarea,
+.text-box input {
+    background: var(--bg-card);
+    color: var(--text-heading);
+    border: 1px solid var(--border-default);
+    padding: 0.8rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 50;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.text-box textarea {
+    width: 320px;
+    height: 180px;
+    resize: vertical;
+}
+
+.text-box textarea::placeholder,
+.text-box input::placeholder {
+    color: var(--text-body);
+    opacity: 0.65;
+}
+
+.text-box textarea:focus,
+.text-box input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(201, 165, 90, 0.12);
+}
