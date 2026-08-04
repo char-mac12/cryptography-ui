@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import CipherModeSelector from '../CipherModeSelector/CipherModeSelector'
+import CipherModeSelector from '../Shared/CipherModeSelector/CipherModeSelector'
 import CipherTextArea from '../CipherTextArea/CipherTextArea'
 import ConversionSection from '../ConversionSection/ConversionSection'
 // import FrequencySection from '../FrequencySection/FrequencySection'
-import InfoPanel from '../InfoPanel/InfoPanel'
-import ShiftKeySlider from '../ShiftKeySlider/ShiftKeySlider'
+import InfoPanel from '../Shared/InfoPanel/InfoPanel'
+import ShiftKeySlider from '../Shared/ShiftKeySlider/ShiftKeySlider'
 import './CaesarTool.css'
 // import CaesarWheelPanel from './CaesarWheelPanel/CaesarWheelPanel'
 
