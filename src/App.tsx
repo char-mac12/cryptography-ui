@@ -1,5 +1,5 @@
 import './App.css'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import Footer from './components/layout/Footer/Footer'
 import Header from './components/layout/Header/Header'
@@ -20,6 +20,10 @@ function App() {
 
                 <main>
                     <Routes>
+                        <Route 
+                            path="/" 
+                            element={<Navigate to="/catalog" replace />} 
+                        />
                         <Route 
                             path="/catalog" 
                             element={<CipherCatalogPage />} 
