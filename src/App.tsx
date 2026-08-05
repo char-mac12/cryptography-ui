@@ -12,7 +12,7 @@ import ReferencePage from './components/pages/ReferencePage/ReferencePage'
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/cryptography-ui">
             <div className="site">
                 <Header />
 
