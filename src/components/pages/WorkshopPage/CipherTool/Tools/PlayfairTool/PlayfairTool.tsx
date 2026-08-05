@@ -57,8 +57,8 @@ function PlayfairTool() {
         );
     };
 
-    const infoPanelText = "Maps each letter to its alphabetic mirror: A↔Z, B↔Y."
-    const frequencyNoticeText = "Notice: When an Atbash Cipher transforms text, the alphabet is completely reversed. This leaves the overall letter frequencies unchanged and visually mirrors the alphabet horizontally around its center.";
+    const infoPanelText = "Encrypts pairs of letters using a 5×5 grid generated from a keyword. Designed to hide individual letter frequencies."
+    const frequencyNoticeText = "Notice: The Playfair Cipher encrypts pairs of letters (digraphs) instead of individual letters. This disguises the normal single-letter frequency analysis, making histogram analysis much less effective. However, digraph frequencies can still reveal statistical patterns that can be exploited.";
 
     return (
         <div className="caesar-tool">
