@@ -3,12 +3,25 @@ import SearchBar from "./SearchBar/SearchBar"
 import SidebarToggleButton from "./SidebarToggleButton/SidebarToggleButton"
 import './SearchPanel.css'
 
-function SearchPanel() {
+type SearchPanelProps = {
+    searchTerm: string;
+    onSearchChange: (value: string) => void
+    results: number;
+}
+
+function SearchPanel({
+    searchTerm,
+    onSearchChange,
+    results
+}: SearchPanelProps) {
     return (
         <div className="search-panel">
             <SidebarToggleButton />
-            <SearchBar />
-            <ResultsCount results={13} />
+            <SearchBar 
+                value={searchTerm}
+                onChange={onSearchChange}
+            />
+            <ResultsCount results={results} />
         </div>
     )
 }

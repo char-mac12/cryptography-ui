@@ -1,23 +1,25 @@
-import { useState } from 'react';
 import './SearchBar.css'
 
-function SearchBar() {
-    const [searchText, setSearchText] = useState("");
+type SearchBarProps = {
+    value: string;
+    onChange: (value: string) => void;
+}
 
+function SearchBar({ value, onChange }: SearchBarProps) {
     return <div className="search-bar">
         <span className="search-icon">⌕</span>
 
         <input
             type="text"
             placeholder="Search ciphers..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
         />
 
-        {searchText && (
+        {value && (
             <button 
                 className="cancel-search"
-                onClick={() => setSearchText("")}
+                onClick={() => onChange("")}
             >
                 X
             </button>
