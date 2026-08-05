@@ -14,6 +14,7 @@ function NavBar() {
                 title="Workshop"
                 description="Encrypt and decrypt messages"
                 path="/workshop/caesar"
+                matchPath="/workshop/:cipherId"
             />
 
             <NavItem

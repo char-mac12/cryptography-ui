@@ -1,17 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useMatch } from "react-router-dom";
 import "./NavItem.css"
 
 interface NavItemProps {
     title: string
     description: string
     path: string
+    matchPath?: string;
 }
 
 function NavItem(props: NavItemProps) {
+    const isExtraMatch = props.matchPath
+        ? useMatch(props.matchPath)
+        : null;
+
     return (
         <NavLink
             className={({ isActive }) =>
-                isActive ? "nav-item selected" : "nav-item"
+                isActive || isExtraMatch 
+                    ? "nav-item selected" 
+                    : "nav-item"
             }
             to={props.path}
         >
