@@ -1,4 +1,4 @@
-import './LetterConversionTable.css'
+import './CaesarLetterConversionTable.css'
 
 type LetterConversionTableProps = {
     text: string;
@@ -6,7 +6,7 @@ type LetterConversionTableProps = {
     mode: 'encrypt' | 'decrypt';
 }
 
-function LetterConversionTable({
+function CaesarLetterConversionTable({
     text,
     shift,
     mode
@@ -87,4 +87,4 @@ function LetterConversionTable({
     );
 }
 
-export default LetterConversionTable
+export default CaesarLetterConversionTable

@@ -1,0 +1,35 @@
+.atbash-table-container {
+    width: 100%;
+}
+
+.atbash-table {
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+
+    width: fit-content;
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+.atbash-table th,
+.atbash-table td {
+    width: 2.2rem;
+    height: 2.2rem;
+
+    text-align: center;
+
+    border: 1px solid var(--border-default);
+}
+
+.atbash-table th {
+    background-color: #161310;
+    color: var(--accent-primary);
+
+    font-weight: 600;
+}
+
+.atbash-table td {
+    background-color: var(--background-secondary);
+    color: var(--text-muted);
+}

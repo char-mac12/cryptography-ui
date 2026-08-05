@@ -1,0 +1,46 @@
+.keyword-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    margin: 2rem 0;
+
+    width: 100%;
+    max-width: 400px;
+}
+
+.keyword-input-label {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.keyword-input {
+    width: 100%;
+    min-width: 0;
+
+    background-color: #161310;
+    color: var(--text-heading);
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    padding: 0.75rem 1rem;
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+
+    transition: border-color 0.2s ease;
+}
+
+.keyword-input::placeholder {
+    color: var(--text-body);
+    opacity: 0.55;
+}
+
+.keyword-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}

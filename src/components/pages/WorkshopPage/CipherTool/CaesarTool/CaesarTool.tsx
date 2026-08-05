@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import CipherModeSelector from '../Shared/CipherModeSelector/CipherModeSelector'
 import CipherTextArea from '../CipherTextArea/CipherTextArea'
-import ConversionSection from '../ConversionSection/ConversionSection'
 import FrequencySection from '../FrequencySection/FrequencySection'
 import InfoPanel from '../Shared/InfoPanel/InfoPanel'
 import ShiftKeySlider from '../Shared/ShiftKeySlider/ShiftKeySlider'
 import './CaesarTool.css'
 import CaesarBruteForceDecrypter from './CaesarBruteForceDecrypter/CaesarBruteForceDecrypter'
+import CaesarConversionSection from '../ConversionSection/CaesarConversionSection'
 // import CaesarWheelPanel from './CaesarWheelPanel/CaesarWheelPanel'
 
 function CaesarTool() {
@@ -62,6 +62,7 @@ function CaesarTool() {
     }, [shift]);
 
     const infoPanelText = "A monoalphabetic substitution cipher which shifts each letter by a fixed number of positions in the alphabet. One of the simplest and most widely known encryption techniques."
+    const frequencyNoticeText = "Notice: When a Caesar Cipher shifts text the shape is identical, just displaced by the shift amount. This is why frequency analysis is very effective at breaking monoalphabetic substitutions."
 
     return (
         <div className="caesar-tool">
@@ -86,7 +87,7 @@ function CaesarTool() {
                 shift={shift}
             /> */}
 
-            <ConversionSection 
+            <CaesarConversionSection 
                 text={mode === 'encrypt' ? plaintext : ciphertext}
                 shift={shift}
                 mode={mode}
@@ -96,6 +97,7 @@ function CaesarTool() {
                 mode={mode}
                 plaintext={plaintext}
                 ciphertext={ciphertext}
+                noticeText={frequencyNoticeText}
             />
 
             {mode === 'decrypt' &&

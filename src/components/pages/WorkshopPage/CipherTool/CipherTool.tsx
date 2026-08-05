@@ -1,6 +1,8 @@
 import type { Cipher } from "../../../../types/Cipher";
 import CaesarTool from "./CaesarTool/CaesarTool";
 import './CipherTool.css'
+import AtbashTool from "./Tools/AtbashTool/AtbashTool";
+import VigenereTool from "./Tools/VigenereTool/VigenereTool";
 
 type CipherToolProps = {
     cipher: Cipher;
@@ -17,14 +19,14 @@ function CipherTool({ cipher }: CipherToolProps) {
         case "vigenere":
             return (
                 <div>
-                    Vigenere Tool - work in progress!
+                    <VigenereTool />
                 </div>
             );
 
         case "atbash":
             return (
                 <div>
-                    Atbash Tool - work in progress!
+                    <AtbashTool />
                 </div>
             );
 

@@ -7,14 +7,13 @@ type FrequencySectionProps = {
     mode: 'encrypt' | 'decrypt'
     plaintext: string;
     ciphertext: string;
+    noticeText: string;
 }
 
-function FrequencySection({ mode, plaintext, ciphertext }: FrequencySectionProps) {
+function FrequencySection({ mode, plaintext, ciphertext, noticeText }: FrequencySectionProps) {
     const text = mode === 'encrypt' ? plaintext : ciphertext;
     const hasText = text.trim().length > 0;
     
-    const noticeText = "Notice: When a Caesar Cipher shifts text the shape is identical, just displaced by the shift amount. This is why frequency analysis is very effective at breaking monoalphabetic substitutions.";
-
     return (
         <div className="frequency-section">
             <ToolHeader title="Frequency Analysis" />

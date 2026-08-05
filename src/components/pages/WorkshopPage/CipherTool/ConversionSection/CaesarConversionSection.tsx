@@ -1,7 +1,7 @@
 import NoticeBox from '../Shared/NoticeBox/NoticeBox'
 import ToolHeader from '../Shared/ToolHeader/ToolHeader'
-import './ConversionSection.css'
-import LetterConversionTable from './LetterConversionTable/LetterConversionTable'
+import './CaesarConversionSection.css'
+import LetterConversionTable from './CaesarLetterConversionTable/CaesarLetterConversionTable'
 
 type ConversionSectionProps = {
     text: string;
@@ -9,7 +9,7 @@ type ConversionSectionProps = {
     mode: 'encrypt' | 'decrypt';
 };
 
-function ConversionSection({ text, shift, mode }: ConversionSectionProps) {
+function CaesarConversionSection({ text, shift, mode }: ConversionSectionProps) {
     const hasText = text.trim().length > 0;
     
     return (
@@ -37,4 +37,4 @@ function ConversionSection({ text, shift, mode }: ConversionSectionProps) {
     )
 }
 
-export default ConversionSection
+export default CaesarConversionSection
