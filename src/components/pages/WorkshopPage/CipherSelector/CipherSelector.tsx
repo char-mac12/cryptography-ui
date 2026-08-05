@@ -30,7 +30,7 @@ function CipherSelector(
                 ))}
             </select>
             <span className="cipher-selector-arrow">
-                ⌄
+                ❯
             </span>
         </div>
     )

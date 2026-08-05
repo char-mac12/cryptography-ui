@@ -38,19 +38,18 @@
 
 .cipher-selector-arrow {
     position: absolute;
-
     right: 0.9rem;
     top: 50%;
 
-    transform: translateY(-80%);
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+    transition: transform 0.2s ease;
 
     color: var(--text-muted);
-    font-size: 1.3rem;
-    line-height: 1;
 
     pointer-events: none;
 }
 
 .cipher-selector:focus + .cipher-selector-arrow {
-    transform: translateY(-60%) rotate(180deg);
+    transform: translateY(-50%) rotate(270deg);
 }
