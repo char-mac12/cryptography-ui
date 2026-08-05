@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 
 import Footer from './components/layout/Footer/Footer'
 import Header from './components/layout/Header/Header'
@@ -12,7 +12,7 @@ import ReferencePage from './components/pages/ReferencePage/ReferencePage'
 
 function App() {
     return (
-        <BrowserRouter basename="/cryptography-ui">
+        <HashRouter>
             <div className="site">
                 <Header />
 
@@ -49,7 +49,7 @@ function App() {
 
                 <Footer />
             </div>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
