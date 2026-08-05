@@ -9,6 +9,7 @@ import VigenereConversionSection from './VigenereConversionSection/VigenereConve
 
 function VigenereTool() {
     const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
+    
     const [keyword, setKeyword] = useState("");
 
     const [plaintext, setPlaintext] = useState("");

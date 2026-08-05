@@ -1,0 +1,32 @@
+.playfair-square {
+    border-collapse: collapse;
+}
+
+
+.playfair-square td {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    text-align: center;
+
+    border: 1px solid var(--border-default);
+
+    color: var(--text-heading);
+
+    font-family: var(--font-mono);
+    font-size: 1rem;
+
+    background-color: #161310;
+
+    transition: background-color 0.2s ease;
+}
+
+.playfair-square td:hover {
+    background-color: var(--accent-hover);
+    color: #161310;
+}
+
+.playfair-square td.highlight {
+    background-color: var(--accent-primary);
+    color: #161310;
+}

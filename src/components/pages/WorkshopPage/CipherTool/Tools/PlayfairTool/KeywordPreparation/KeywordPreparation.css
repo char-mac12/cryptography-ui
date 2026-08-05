@@ -1,0 +1,57 @@
+.keyword-preparation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 1.25rem;
+
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: 0.25rem;
+}
+
+
+.keyword-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.keyword-step h4 {
+    margin: 0;
+
+    color: var(--text-heading);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
+.keyword-step p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+}
+
+
+.keyword-value {
+    width: fit-content;
+
+    padding: 0.5rem 0.75rem;
+
+    background-color: #161310;
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    color: var(--accent-primary);
+
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}

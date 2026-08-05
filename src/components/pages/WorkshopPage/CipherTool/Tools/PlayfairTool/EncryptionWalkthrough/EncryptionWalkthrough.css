@@ -1,0 +1,110 @@
+.encryption-walkthrough {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 1.25rem;
+
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: 0.25rem;
+}
+
+
+.walkthrough-header h4 {
+    margin: 0;
+
+    color: var(--text-heading);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
+.walkthrough-content {
+    display: flex;
+    gap: 2rem;
+
+    align-items: center;
+}
+
+
+.walkthrough-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.walkthrough-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.walkthrough-step h5 {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+.walkthrough-value {
+    width: fit-content;
+
+    padding: 0.5rem 0.75rem;
+
+    background-color: #161310;
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    color: var(--accent-primary);
+
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+}
+
+
+.walkthrough-value.result {
+    color: var(--status-success);
+}
+
+
+.walkthrough-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.walkthrough-controls button {
+    padding: 0.5rem 1rem;
+
+    background-color: #161310;
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    color: var(--text-heading);
+
+    cursor: pointer;
+}
+
+
+.walkthrough-controls button:hover:not(:disabled) {
+    border-color: var(--accent-primary);
+}
+
+
+.walkthrough-controls button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}

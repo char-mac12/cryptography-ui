@@ -1,0 +1,51 @@
+.plaintext-preparation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 1.25rem;
+
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: 0.25rem;
+}
+
+
+.plaintext-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.plaintext-step h4 {
+    margin: 0;
+
+    color: var(--text-heading);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
+.plaintext-value {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: fit-content;
+
+    padding: 0.5rem 0.75rem;
+
+    background-color: #161310;
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    color: var(--accent-primary);
+
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
