@@ -11,6 +11,7 @@ import CollapsiblePanel from '../../Shared/CollapsiblePanel/CollapsiblePanel';
 import PlaintextPreparation from './PlaintextPreparation/PlaintextPreparation';
 import ToolHeader from '../../Shared/ToolHeader/ToolHeader';
 import EncryptionWalkthrough from './EncryptionWalkthrough/EncryptionWalkthrough';
+import DigraphFrequencyTable from '../../Shared/DigraphFrequencyTable/DigraphFrequencyTable';
 
 function PlayfairTool() {
     const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
@@ -111,6 +112,15 @@ function PlayfairTool() {
                 ciphertext={ciphertext}
                 noticeText={frequencyNoticeText}
             />
+
+            <ToolHeader title="Digraph Frequency Analysis" />
+            {(mode === "encrypt" ? ciphertext : plaintext).length > 0 ? (
+                <DigraphFrequencyTable
+                    text={mode === "encrypt" ? ciphertext : plaintext}
+                />
+            ) : (
+                <p>Encrypt or decrypt some text to analyse digraph frequencies.</p>
+            )}
         </div>
     )
 }

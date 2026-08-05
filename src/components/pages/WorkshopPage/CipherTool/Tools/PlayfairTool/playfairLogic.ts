@@ -247,3 +247,27 @@ export function playfairDecrypt() {
         ""
     )
 }
+
+export function getDigraphFrequencies(text: string) {
+    const cleaned = text
+        .toUpperCase()
+        .replace(/[^A-Z]/g, "")
+        .replace(/J/g, "I");
+
+    const counts: Record<string, number> = {};
+
+    for (let i = 0; i < cleaned.length - 1; i += 2) {
+        const pair = cleaned.slice(i, i + 2);
+
+        if (pair.length === 2) {
+            counts[pair] = (counts[pair] ?? 0) + 1;
+        }
+    }
+
+    return Object.entries(counts)
+        .map(([pair, count]) => ({
+            pair,
+            count
+        }))
+        .sort((a, b) => b.count - a.count);
+}
