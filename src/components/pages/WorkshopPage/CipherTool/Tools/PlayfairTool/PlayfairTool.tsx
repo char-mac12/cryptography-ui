@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './PlayfairTool.css'
 import InfoPanel from '../../Shared/InfoPanel/InfoPanel';
 import CipherModeSelector from '../../Shared/CipherModeSelector/CipherModeSelector';
 import CipherTextArea from '../../CipherTextArea/CipherTextArea';
 import FrequencySection from '../../FrequencySection/FrequencySection';
-import { generateKeywordSquare, playfairDecrypt, playfairEncrypt, playfairEncryptionSteps } from './playfairLogic';
+import { generateKeywordSquare, playfairDecrypt, playfairDecryptionSteps, playfairEncrypt, playfairEncryptionSteps } from './playfairLogic';
 import KeywordInput from '../../Shared/KeywordInput/KeywordInput';
 import KeywordPreparation from './KeywordPreparation/KeywordPreparation';
 import CollapsiblePanel from '../../Shared/CollapsiblePanel/CollapsiblePanel';
 import PlaintextPreparation from './PlaintextPreparation/PlaintextPreparation';
 import ToolHeader from '../../Shared/ToolHeader/ToolHeader';
-import EncryptionWalkthrough from './EncryptionWalkthrough/EncryptionWalkthrough';
 import DigraphFrequencyTable from '../../Shared/DigraphFrequencyTable/DigraphFrequencyTable';
+import PlayfairWalkthrough from './PlayfairWalkthrough/PlayfairWalkthrough';
+import CiphertextPreparation from './CiphertextPreparation/CiphertextPreparation';
 
 function PlayfairTool() {
     const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
@@ -23,43 +24,49 @@ function PlayfairTool() {
 
     const square = generateKeywordSquare(keyword);
 
-    const encryptionSteps = playfairEncryptionSteps(
-        plaintext,
-        keyword
-    );
+    const steps = mode === 'encrypt'
+        ? playfairEncryptionSteps(plaintext, keyword)
+        : playfairDecryptionSteps(ciphertext, keyword)
 
     const handleKeywordChange = (value: string) => {
         setKeyword(value);
-
-        if (mode === 'encrypt') {
-            setCiphertext(playfairEncrypt(plaintext, value));
-        }
     }
 
     const handlePlaintextChange = (text: string) => {
         setPlaintext(text);
-
-        if (mode === 'encrypt') {
-            setCiphertext(playfairEncrypt(text, keyword));
-        }
     }
 
     const handleCiphertextChange = (text: string) => {
         setCiphertext(text);
-
-        if (mode === 'decrypt') {
-            setPlaintext(playfairDecrypt());
-        }
     }
 
     const handleSwap = () => {
-        setMode((currentMode) =>
-            currentMode === 'encrypt' ? 'decrypt' : 'encrypt'
-        );
+        const newMode = mode === 'encrypt' ? 'decrypt' : 'encrypt'
+
+        setMode(newMode);
+
+        if (newMode === 'encrypt') {
+            setCiphertext(playfairEncrypt(plaintext, keyword));
+        } else {
+            setPlaintext(playfairDecrypt(ciphertext, keyword));
+        }
     };
 
+    useEffect(() => {
+        if (mode !== "encrypt") return;
+
+        setCiphertext(playfairEncrypt(plaintext, keyword));
+    }, [plaintext, keyword, mode]);
+
+    useEffect(() => {
+        if (mode !== "decrypt") return;
+
+        setPlaintext(playfairDecrypt(ciphertext, keyword));
+    }, [ciphertext, keyword, mode]);
+
     const infoPanelText = "Encrypts pairs of letters using a 5×5 grid generated from a keyword. Designed to hide individual letter frequencies."
-    const frequencyNoticeText = "Notice: The Playfair Cipher encrypts pairs of letters (digraphs) instead of individual letters. This disguises the normal single-letter frequency analysis, making histogram analysis much less effective. However, digraph frequencies can still reveal statistical patterns that can be exploited.";
+    const frequencyNoticeText = "Notice: Single-letter frequency analysis is less effective against the Playfair cipher as it encrypts pairs of letters rather than individual letters. This disguises the normal frequency patterns that are commonly used to analyse simple substitution ciphers.";
+    const digraphNoticeText = "Notice: Digraph frequency analysis is more effective against the Playfair cipher as it examines the pairs of letters that are actually encrypted. Repeated digraph patterns can reveal statistical information about the ciphertext."
 
     return (
         <div className="caesar-tool">
@@ -92,17 +99,41 @@ function PlayfairTool() {
                 }
             </CollapsiblePanel>
 
-            <CollapsiblePanel title="Plaintext Pairs Preparation">
-                {plaintext.length > 0
-                    ? <PlaintextPreparation plaintext={plaintext} />
-                    : <p>Enter some plaintext to see how to break it down into pairs for encryption...</p>
+            <CollapsiblePanel
+                title={
+                    mode === "encrypt"
+                        ? "Plaintext Preparation"
+                        : "Ciphertext Preparation"
                 }
+            >
+                {mode === "encrypt" ? (
+                    plaintext.length > 0 ? (
+                        <PlaintextPreparation plaintext={plaintext} />
+                    ) : (
+                        <p>
+                            Enter some plaintext to see how it is cleaned, split into
+                            digraphs, and prepared for Playfair encryption...
+                        </p>
+                    )
+                ) : (
+                    ciphertext.length > 0 ? (
+                        <CiphertextPreparation ciphertext={ciphertext} />
+                    ) : (
+                        <p>
+                            Enter some ciphertext to see how it is cleaned and split into
+                            digraphs ready for Playfair decryption...
+                        </p>
+                    )
+                )}
             </CollapsiblePanel>
 
-            <CollapsiblePanel title="Encryption Walkthrough">
+            <CollapsiblePanel title={mode === 'encrypt' ? "Encryption Walkthrough" : "Decryption Walkthrough"}>
                 {keyword.length > 0 && plaintext.length > 0
-                    ? <EncryptionWalkthrough square={square} steps={encryptionSteps} />
-                    : <p>Enter a keyword and plaintext to see how each letter pair is encrypted using the keyword square and Playfair rules...</p>
+                    ? <PlayfairWalkthrough mode={mode} square={square} steps={steps} />
+                    : <p>{mode === 'encrypt' 
+                            ? "Enter a keyword and plaintext to see how each letter pair is encrypted using the keyword square and Playfair rules..." 
+                            : "Enter a keyword and ciphertext to see how each letter pair is decrypted using the keyword square and Plyfair rules..."
+                    }</p>
                 }
             </CollapsiblePanel>
 
@@ -116,10 +147,11 @@ function PlayfairTool() {
             <ToolHeader title="Digraph Frequency Analysis" />
             {(mode === "encrypt" ? ciphertext : plaintext).length > 0 ? (
                 <DigraphFrequencyTable
-                    text={mode === "encrypt" ? ciphertext : plaintext}
+                    text={ciphertext}
+                    noticeText={digraphNoticeText}
                 />
             ) : (
-                <p>Encrypt or decrypt some text to analyse digraph frequencies.</p>
+                <p>Frequency analysis will appear here when text is entered.</p>
             )}
         </div>
     )

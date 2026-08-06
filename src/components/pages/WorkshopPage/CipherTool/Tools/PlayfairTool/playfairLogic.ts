@@ -1,6 +1,6 @@
 const alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
 
-export interface PlayfairEncryptionStep {
+export interface PlayfairStep {
     pair: string;
     rule: "same-row" | "same-column" | "rectangle";
     firstPosition: {
@@ -132,10 +132,25 @@ export function preparePlaintext(text: string) {
     return pairs;
 }
 
+export function prepareCiphertext(text: string) {
+    const cleaned = text
+        .toUpperCase()
+        .replace(/[^A-Z]/g, "")
+        .replace(/J/g, "I");
+
+    const pairs: string[] = [];
+
+    for (let i = 0; i < cleaned.length; i += 2) {
+        pairs.push(cleaned.slice(i, i + 2));
+    }
+
+    return pairs;
+}
+
 function encryptPair(
     pair: string,
     square: string[][]
-): PlayfairEncryptionStep {
+): PlayfairStep {
     const firstPos = findPosition(square, pair[0]);
     const secondPos = findPosition(square, pair[1]);
 
@@ -187,7 +202,7 @@ function encryptPair(
 export function playfairEncryptionSteps(
     text: string,
     keyword: string
-): PlayfairEncryptionStep[] {
+): PlayfairStep[] {
 
     const square = generateKeywordSquare(keyword);
     const pairs = preparePlaintext(text);
@@ -242,10 +257,118 @@ export function playfairEncrypt(
         .join("");
 }
 
-export function playfairDecrypt() {
+export function decryptPair(
+    pair: string,
+    square: string[][]
+): PlayfairStep {
+    const firstPos = findPosition(square, pair[0]);
+    const secondPos = findPosition(square, pair[1]);
+
+    if (firstPos.row === secondPos.row) {
+        const result = decryptSameRowPair(
+            firstPos,
+            secondPos,
+            square
+        );
+
+        return {
+            pair,
+            rule: "same-row",
+            firstPosition: firstPos,
+            secondPosition: secondPos,
+            result
+        };
+    }
+
+    if (firstPos.col === secondPos.col) {
+        const result = decryptSameColPair(
+            firstPos,
+            secondPos,
+            square
+        );
+
+        return {
+            pair,
+            rule: "same-column",
+            firstPosition: firstPos,
+            secondPosition: secondPos,
+            result
+        };
+    }
+
+    const result = decryptRectangleRulePair(
+        firstPos,
+        secondPos,
+        square
+    );
+
+    return {
+        pair,
+        rule: "rectangle",
+        firstPosition: firstPos,
+        secondPosition: secondPos,
+        result
+    };
+}
+
+function decryptSameRowPair(
+    firstPos: { row: number; col: number },
+    secondPos: { row: number; col: number },
+    square: string[][]
+) {
     return (
-        ""
-    )
+        square[firstPos.row][(firstPos.col + 4) % 5] +
+        square[secondPos.row][(secondPos.col + 4) % 5]
+    );
+}
+
+function decryptSameColPair(
+    firstPos: { row: number; col: number },
+    secondPos: { row: number; col: number },
+    square: string[][]
+) {
+    return (
+        square[(firstPos.row + 4) % 5][firstPos.col] +
+        square[(secondPos.row + 4) % 5][secondPos.col]
+    );
+}
+
+function decryptRectangleRulePair(
+    firstPos: { row: number; col: number },
+    secondPos: { row: number; col: number },
+    square: string[][]
+) {
+    return (
+        square[firstPos.row][secondPos.col] +
+        square[secondPos.row][firstPos.col]
+    );
+}
+
+export function playfairDecrypt(
+    text: string,
+    keyword: string
+) {
+    const square = generateKeywordSquare(keyword);
+
+    const pairs = prepareCiphertext(text);
+
+    return pairs
+        .map(pair => decryptPair(pair, square).result)
+        .join("");
+}
+
+export function playfairDecryptionSteps(
+    text: string,
+    keyword: string
+): PlayfairStep[] {
+
+    const square = generateKeywordSquare(keyword);
+
+    const pairs = prepareCiphertext(text);
+
+    return pairs.map(pair =>
+        decryptPair(pair, square)
+    );
 }
 
 export function getDigraphFrequencies(text: string) {

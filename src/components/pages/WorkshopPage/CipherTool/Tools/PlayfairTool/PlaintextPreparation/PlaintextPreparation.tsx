@@ -1,3 +1,4 @@
+import NoticeBox from '../../../Shared/NoticeBox/NoticeBox';
 import { preparePlaintextSteps } from '../playfairLogic';
 import './PlaintextPreparation.css'
 
@@ -35,6 +36,7 @@ function PlaintextPreparation({plaintext}: {plaintext: string}) {
                     {paddedPairs.join(" ")}
                 </div>
             </div>
+            <NoticeBox text="The Playfair cipher inserts X between repeated letters in the same digraph and adds X to the final pair if the result has an odd number of letters." />
         </div>
     )
 }

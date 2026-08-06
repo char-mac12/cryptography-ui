@@ -1,19 +1,31 @@
-import { useState } from 'react';
-import type { PlayfairEncryptionStep } from '../playfairLogic';
+import { useEffect, useState } from 'react';
+import type { PlayfairStep } from '../playfairLogic';
 import PlayfairSquare from '../PlayfairSquare/PlayfairSquare';
-import './EncryptionWalkthrough.css';
+import './PlayfairWalkthrough.css';
+import NoticeBox from '../../../Shared/NoticeBox/NoticeBox';
 
 
-interface EncryptionWalkthroughProps {
+interface PlayfairWalkthroughProps {
+    mode: 'encrypt' | 'decrypt'
     square: string[][];
-    steps: PlayfairEncryptionStep[];
+    steps: PlayfairStep[];
 }
 
-
-function EncryptionWalkthrough({
+function PlayfairWalkthrough({
+    mode,
     square,
     steps
-}: EncryptionWalkthroughProps) {
+}: PlayfairWalkthroughProps) {
+
+    useEffect(() => {
+        setCurrentStep(0);
+    }, [mode, steps.length]);
+
+    const ruleLabels = {
+        "same-row": "Same row",
+        "same-column": "Same column",
+        "rectangle": "Rectangle rule"
+    }
 
     const [currentStep, setCurrentStep] = useState(0);
 
@@ -31,11 +43,13 @@ function EncryptionWalkthrough({
 
 
     return (
-        <div className="encryption-walkthrough">
+        <div className="playfair-walkthrough">
 
             <div className="walkthrough-header">
                 <h4>
-                    Encryption Step {currentStep + 1} / {steps.length}
+                    {mode === "encrypt"
+                        ? `Encryption Step ${currentStep + 1} / ${steps.length}`
+                        : `Decryption Step ${currentStep + 1} / ${steps.length}`}
                 </h4>
             </div>
 
@@ -68,7 +82,7 @@ function EncryptionWalkthrough({
                         <h5>Rule</h5>
 
                         <div className="walkthrough-value">
-                            {step.rule}
+                            {ruleLabels[step.rule]}
                         </div>
 
                     </div>
@@ -76,7 +90,12 @@ function EncryptionWalkthrough({
 
                     <div className="walkthrough-step">
 
-                        <h5>Encrypted result</h5>
+                        <h5>
+                            {mode === 'encrypt'
+                                ? "Encrypted Result"
+                                : "Decrypted Result"
+                            }
+                        </h5>
 
                         <div className="walkthrough-value result">
                             {step.result}
@@ -94,7 +113,7 @@ function EncryptionWalkthrough({
                 <button
                     disabled={currentStep === 0}
                     onClick={() =>
-                        setCurrentStep(currentStep - 1)
+                        setCurrentStep(step => step - 1)
                     }
                 >
                     Previous
@@ -104,7 +123,7 @@ function EncryptionWalkthrough({
                 <button
                     disabled={currentStep === steps.length - 1}
                     onClick={() =>
-                        setCurrentStep(currentStep + 1)
+                        setCurrentStep(step => step + 1)
                     }
                 >
                     Next
@@ -112,9 +131,11 @@ function EncryptionWalkthrough({
 
             </div>
 
+            <NoticeBox text="Decryption restores the ciphertext to the prepared plaintext used during encryption. It cannot determine whether an X was added as a filler character or was part of the original message, so filler X characters may need to be removed manually." />
+
         </div>
     )
 }
 
 
-export default EncryptionWalkthrough;
+export default PlayfairWalkthrough;
