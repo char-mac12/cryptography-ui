@@ -1,20 +1,20 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { ciphers } from '../../../data/ciphers'
-import CipherSelector from './CipherSelector/CipherSelector'
-import CipherTool from './CipherTool/CipherTool'
-import ReferencePanel from './ReferencePanel/ReferencePanel'
+import ToolSelector from "./ToolSelector/ToolSelector";
+import WorkshopTool from "./WorkshopTool/WorkshopTool";
+import ReferencePanel from "./ReferencePanel/ReferencePanel";
+import { tools } from "../../../data/tools";
 import './WorkshopPage.css'
 
 function WorkshopPage() {   
-    const { cipherId } = useParams();
+    const { toolId } = useParams();
     const navigate = useNavigate();
     
-    const selectedCipher = ciphers.find(
-        (cipher) => cipher.id === cipherId
+    const selectedTool = tools.find(
+        (tool) => tool.id === toolId
     );
 
-    if (!selectedCipher) {
-        return <p>Cipher not found</p>
+    if (!selectedTool) {
+        return <p>Tool not found</p>
     }
 
     return (
@@ -22,12 +22,12 @@ function WorkshopPage() {
             <div className="workshop-content">
                 <div className="workshop-main">
                     <h1>Workshop</h1>
-                    <CipherSelector
-                        selectedCipherId={cipherId ?? ""}
-                        setSelectedCipherId={(id) => navigate(`/workshop/${id}`)}
+                    <ToolSelector
+                        selectedToolId={toolId ?? ""}
+                        setSelectedToolId={(id) => navigate(`/workshop/${id}`)}
                     />
-                    {selectedCipher && (
-                        <CipherTool cipher={selectedCipher} />
+                    {selectedTool && (
+                        <WorkshopTool tool={selectedTool} />
                     )}
                 </div>
             </div>

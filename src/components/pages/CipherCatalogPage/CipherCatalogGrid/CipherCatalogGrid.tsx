@@ -1,6 +1,6 @@
 import CipherCard from './CipherCard/CipherCard';
 import "./CipherCatalogGrid.css"
-import type { Cipher } from '../../../../types/Cipher';
+import type { Cipher } from '../../../../types/Tool';
 
 function CipherCatalogGrid({ ciphers }: { ciphers: Cipher[] }) {
   return (

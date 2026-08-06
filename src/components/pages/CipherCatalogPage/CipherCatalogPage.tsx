@@ -3,13 +3,13 @@ import CipherCatalogGrid from "./CipherCatalogGrid/CipherCatalogGrid"
 import CipherCatalogLegend from "./CipherCatalogLegend/CipherCatalogLegend"
 import "./CipherCatalogPage.css"
 import SearchPanel from "./SearchPanel/SearchPanel"
-import { ciphers } from "../../../data/ciphers";
+import { tools } from "../../../data/tools";
 
 function CipherCatalogPage() {
     const [searchTerm, setSearchTerm] = useState("");
 
-    const filteredCiphers = ciphers.filter(cipher => 
-        cipher.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredCiphers = tools.filter(tool => 
+        tool.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (

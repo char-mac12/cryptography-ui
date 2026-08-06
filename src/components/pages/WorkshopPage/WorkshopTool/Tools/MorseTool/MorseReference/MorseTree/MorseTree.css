@@ -1,0 +1,90 @@
+.morse-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.tree-key {
+    display: flex;
+    gap: 2rem;
+
+    padding: 0.75rem 1rem;
+
+    background: var(--background-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: 0.5rem;
+}
+
+.tree-key strong {
+    font-size: 1.2rem;
+}
+
+
+.morse-level {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    width: 100%;
+}
+
+
+.morse-level:not(:first-of-type)::before {
+    content: "";
+
+    position: absolute;
+
+    top: -1rem;
+    left: 50%;
+
+    height: 1rem;
+
+    border-left: 1px solid var(--border-default);
+}
+
+
+.morse-node {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    background: var(--background-secondary);
+
+    border: 1px solid var(--border-default);
+    border-radius: 50%;
+
+    z-index: 1;
+}
+
+
+.morse-node strong {
+    font-size: 1.1rem;
+}
+
+
+.morse-node span {
+    margin-top: 0.25rem;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    letter-spacing: 0.15rem;
+}
+
+
+.morse-node.root {
+    background: var(--accent);
+    color: white;
+}

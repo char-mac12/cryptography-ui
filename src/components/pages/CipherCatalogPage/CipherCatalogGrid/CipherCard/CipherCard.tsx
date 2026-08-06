@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import type { Cipher } from "../../../../../types/Cipher"
+import type { Cipher } from "../../../../../types/Tool"
 import CipherDifficultyBadge from "./CipherDifficultyBadge/CipherDifficultyBadge"
 import CipherStatusBadge from "./CipherStatusBadge/CipherStatusBadge"
 import CipherTag from "./CipherTag/CipherTag"

@@ -1,0 +1,10 @@
+.morse-conversion-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.conversion-row {
+    display: flex;
+    gap: 12px;
+}

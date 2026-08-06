@@ -1,0 +1,45 @@
+.morse-reference {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.morse-reference h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+
+.morse-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 12px;
+}
+
+
+.morse-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+    border-radius: 8px;
+
+    background-color: var(--panel-background);
+    border: 1px solid var(--border-color);
+
+    gap: 6px;
+}
+
+
+.morse-entry strong {
+    font-size: 1.1rem;
+}
+
+
+.morse-entry span {
+    font-family: monospace;
+    letter-spacing: 2px;
+    color: var(--secondary-text);
+}

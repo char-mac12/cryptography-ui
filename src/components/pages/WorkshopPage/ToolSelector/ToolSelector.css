@@ -1,0 +1,55 @@
+.tool-selector-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.tool-selector {
+    width: 100%;
+
+    background-color: #161310;
+    color: var(--accent-primary);
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+
+    transition: border-color 0.2s ease;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.tool-selector:hover {
+    border-color: var(--accent-hover);
+}
+
+.tool-selector:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.tool-selector-arrow {
+    position: absolute;
+    right: 0.9rem;
+    top: 50%;
+
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+
+    color: var(--text-muted);
+
+    pointer-events: none;
+}
+
+.tool-selector:focus + .tool-selector-arrow {
+    transform: translateY(-50%) rotate(270deg);
+}

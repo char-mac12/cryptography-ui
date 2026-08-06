@@ -1,0 +1,22 @@
+.tool-text-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    margin: 1rem 0 2rem 0;
+
+    width: 100%;
+    min-width: 0;
+}
+
+@media (max-width: 700px) {
+    .tool-text-area {
+        flex-direction: column;
+    }
+}
+
+.tool-text-area > * {
+    min-width: 0;
+}

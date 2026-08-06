@@ -1,0 +1,50 @@
+import type { Tool } from '../../../../types/Tool'
+import CaesarTool from "./Tools/CaesarTool/CaesarTool";
+import './WorkshopTool.css'
+import AtbashTool from "./Tools/AtbashTool/AtbashTool";
+import PlayfairTool from "./Tools/PlayfairTool/PlayfairTool";
+import VigenereTool from "./Tools/VigenereTool/VigenereTool";
+import MorseTool from './Tools/MorseTool/MorseTool';
+
+type WorkshopToolProps = {
+    tool: Tool;
+};
+
+function WorkshopTool({ tool }: WorkshopToolProps) {
+
+    switch (tool.id) {
+        case "caesar":
+            return (
+                <CaesarTool />
+            );
+
+        case "vigenere":
+            return (
+                <VigenereTool />
+            );
+
+        case "atbash":
+            return (
+                <AtbashTool />
+            );
+
+        case "playfair":
+            return (
+                <PlayfairTool />
+            );
+
+        case "morse":
+            return (
+                <MorseTool />
+            );
+
+        default:
+            return (
+                <div>
+                    Tool not available
+                </div>
+            );
+    }
+}
+
+export default WorkshopTool;

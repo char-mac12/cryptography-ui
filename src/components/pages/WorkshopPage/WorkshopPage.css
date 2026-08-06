@@ -20,6 +20,10 @@
     min-width: 0;
 }
 
+.workshop-content {
+    min-width: 0;
+}
+
 .workshop-main h1 {
     font-size: 1.8rem;
     font-weight: 500;

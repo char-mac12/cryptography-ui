@@ -30,7 +30,7 @@ function App() {
                         />
 
                         <Route 
-                            path="/workshop/:cipherId" 
+                            path="/workshop/:toolId" 
                             element={<WorkshopPage />} 
                         />
 
