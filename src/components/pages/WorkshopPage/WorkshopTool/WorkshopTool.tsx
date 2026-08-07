@@ -5,6 +5,7 @@ import AtbashTool from "./Tools/AtbashTool/AtbashTool";
 import PlayfairTool from "./Tools/PlayfairTool/PlayfairTool";
 import VigenereTool from "./Tools/VigenereTool/VigenereTool";
 import MorseTool from './Tools/MorseTool/MorseTool';
+import EnigmaTool from './Tools/EnigmaTool/EnigmaTool';
 
 type WorkshopToolProps = {
     tool: Tool;
@@ -37,6 +38,11 @@ function WorkshopTool({ tool }: WorkshopToolProps) {
             return (
                 <MorseTool />
             );
+
+        // case "enigma":
+        //     return (
+        //         <EnigmaTool />
+        //     );
 
         default:
             return (

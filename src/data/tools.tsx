@@ -119,4 +119,16 @@ export const tools = [
     hasVisualisation: true,
     tags: ["Educational", "Encoding", "Beginner"],
   },
+  {
+    id: "enigma",
+    title: "Enigma Machine",
+    status: "Broken",
+    difficulty: "Advanced",
+    category: "Polyalphabetic Cipher",
+    origin: "1918 • Germany",
+    description: "A rotor-based electromechanical cipher machine which uses rotating substitution alphabets to create a changing encryption system. Used extensively by Germany during World War II before being cryptanalytically broken by Allied codebreakers.",
+    inputTypes: ["Text"],
+    hasVisualisation: true,
+    tags: ["Educational", "Symmetric", "Historical", "Rotor Cipher"],
+  },
 ];
