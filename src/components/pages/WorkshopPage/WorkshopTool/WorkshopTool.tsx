@@ -1,12 +1,13 @@
 import type { Tool } from '../../../../types/Tool'
-import CaesarTool from "./Tools/CaesarTool/CaesarTool";
+import CaesarTool from "./Tools/CipherTools/CaesarTool/CaesarTool";
 import './WorkshopTool.css'
-import AtbashTool from "./Tools/AtbashTool/AtbashTool";
-import PlayfairTool from "./Tools/PlayfairTool/PlayfairTool";
-import VigenereTool from "./Tools/VigenereTool/VigenereTool";
-import MorseTool from './Tools/MorseTool/MorseTool';
-import PolybiusTool from './Tools/PolybiusTool/PolybiusTool';
-import AffineTool from './Tools/AffineTool/AffineTool';
+import AtbashTool from "./Tools/CipherTools/AtbashTool/AtbashTool";
+import PlayfairTool from "./Tools/CipherTools/PlayfairTool/PlayfairTool";
+import VigenereTool from "./Tools/CipherTools/VigenereTool/VigenereTool";
+import MorseTool from './Tools/EncodingTools/MorseTool/MorseTool';
+import PolybiusTool from './Tools/EncodingTools/PolybiusTool/PolybiusTool';
+import AffineTool from './Tools/CipherTools/AffineTool/AffineTool';
+import RailFenceTool from './Tools/CipherTools/RailFenceTool/RailFenceTool';
 
 type WorkshopToolProps = {
     tool: Tool;
@@ -48,6 +49,11 @@ function WorkshopTool({ tool }: WorkshopToolProps) {
         case "affine": 
             return (
                 <AffineTool />
+            );
+
+        case "rail-fence":
+            return (
+                <RailFenceTool />
             );
 
         // case "enigma":

@@ -1,0 +1,61 @@
+.rail-fence-brute-force {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+}
+
+.rail-fence-brute-force > p {
+    margin-bottom: 0.75rem;
+}
+
+.brute-force-parameters {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.rail-fence-brute-force table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rail-fence-brute-force th {
+    color: var(--text-muted);
+
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    text-align: left;
+
+    border-bottom: 1px solid var(--border-default);
+}
+
+.rail-fence-brute-force td {
+    color: var(--text-body);
+    padding: 0.1rem 0;
+}
+
+/* Rail number */
+.rail-fence-brute-force td:first-child {
+    width: 80px;
+
+    color: var(--accent-primary);
+}
+
+/* Decrypted text */
+.rail-fence-brute-force td:last-child {
+    color: var(--text-heading);
+}
+
+/* Hover effect */
+.rail-fence-brute-force tr:hover td {
+    background: rgba(201, 165, 90, 0.05);
+}
+
+/* Empty message */
+.rail-fence-brute-force p {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+}

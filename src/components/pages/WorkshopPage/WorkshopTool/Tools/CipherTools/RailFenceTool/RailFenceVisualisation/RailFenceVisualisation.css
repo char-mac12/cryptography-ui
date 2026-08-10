@@ -1,0 +1,130 @@
+.rail-fence-visualisation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 1.25rem;
+
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: 0.25rem;
+}
+
+.rail-fence-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rail-fence-step h3 {
+    margin: 0;
+
+    color: var(--text-heading);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.rail-fence-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    width: fit-content;
+    max-width: 100%;
+
+    padding: 0.75rem;
+
+    background-color: #161310;
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    overflow-x: auto;
+}
+
+.rail-fence-row {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.rail-fence-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    color: var(--accent-primary);
+
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.rail-fence-cell.empty {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.rail-fence-output {
+    width: fit-content;
+
+    padding: 0.5rem 0.75rem;
+
+    background-color: #161310;
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    color: var(--accent-primary);
+
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+
+    word-break: break-all;
+}
+
+.rail-fence-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rail-fence-row-result {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rail-fence-row-label {
+    min-width: 4rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.rail-fence-row-text {
+    padding: 0.5rem 0.75rem;
+
+    background-color: #161310;
+    border: 1px solid var(--border-default);
+    border-radius: 0.15rem;
+
+    color: var(--accent-primary);
+
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
