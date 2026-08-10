@@ -8,6 +8,8 @@ import MorseTool from './Tools/EncodingTools/MorseTool/MorseTool';
 import PolybiusTool from './Tools/EncodingTools/PolybiusTool/PolybiusTool';
 import AffineTool from './Tools/CipherTools/AffineTool/AffineTool';
 import RailFenceTool from './Tools/CipherTools/RailFenceTool/RailFenceTool';
+import NatoPhoneticTool from './Tools/EncodingTools/NatoPhoneticTool/NatoPhoneticTool';
+// import SemaphoreTool from './Tools/EncodingTools/SemaphoreTool/SemaphoreTool';
 
 type WorkshopToolProps = {
     tool: Tool;
@@ -55,6 +57,16 @@ function WorkshopTool({ tool }: WorkshopToolProps) {
             return (
                 <RailFenceTool />
             );
+
+        case "nato-phonetic":
+            return (
+                <NatoPhoneticTool />
+            );
+
+        // case "semaphore":
+        //     return (
+        //         <SemaphoreTool />
+        //     );
 
         // case "enigma":
         //     return (

@@ -1,0 +1,50 @@
+.nato-phonetic-reference {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nato-phonetic-reference h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.nato-phonetic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.nato-phonetic-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+    border-radius: 8px;
+
+    background-color: var(--panel-background);
+    border: 1px solid var(--border-color);
+
+    gap: 6px;
+}
+
+.nato-phonetic-entry:hover {
+    background: rgba(201, 165, 90, 0.05);
+}
+
+.nato-phonetic-character {
+    color: var(--text-heading);
+
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.nato-phonetic-word {
+    color: var(--secondary-text);
+
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
