@@ -1,0 +1,67 @@
+.tap-code-grid {
+    border-collapse: collapse;
+}
+
+.tap-code-grid td {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    text-align: center;
+
+    border: 1px solid var(--border-default);
+
+    color: var(--text-heading);
+
+    font-family: var(--font-mono);
+    font-size: 1rem;
+
+    background-color: #161310;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.tap-code-grid td:hover {
+    background-color: var(--accent-hover);
+    color: #161310;
+}
+
+.tap-code-grid td.coordinate-cell {
+    background-color: var(--accent-primary);
+    color: #161310;
+}
+
+.tap-code-grid th {
+    padding: 0.5rem;
+
+    font-family: var(--font-mono);
+    color: var(--text-heading);
+}
+
+.tap-code-grid th:first-child {
+    padding-right: 1rem;
+}
+
+.tap-code-grid tr:first-child th {
+    padding-bottom: 1rem;
+}
+
+.tap-code-grid th.coordinate-highlight {
+    color: var(--accent-primary);
+}
+
+.tap-code-coordinate {
+    margin-top: 0.75rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-heading);
+}
+
+.tap-code-coordinate span {
+    margin-left: 0.5rem;
+
+    color: var(--accent-primary);
+    font-weight: bold;
+}

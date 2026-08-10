@@ -8,7 +8,7 @@ import PolybiusSquare from './PolybiusSquare/PolybiusSquare';
 import ToolHeader from '../../../Shared/ToolHeader/ToolHeader';
 import KeywordInput from '../../../Shared/KeywordInput/KeywordInput';
 
-function MorseTool() {
+function PolybiusTool() {
     const [mode, setMode] = useState<'encode' | 'decode'>('encode');
    
     const [keyword, setKeyword] = useState("");
@@ -68,4 +68,4 @@ function MorseTool() {
     )
 }
 
-export default MorseTool
+export default PolybiusTool

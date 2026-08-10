@@ -9,6 +9,7 @@ import PolybiusTool from './Tools/EncodingTools/PolybiusTool/PolybiusTool';
 import AffineTool from './Tools/CipherTools/AffineTool/AffineTool';
 import RailFenceTool from './Tools/CipherTools/RailFenceTool/RailFenceTool';
 import NatoPhoneticTool from './Tools/EncodingTools/NatoPhoneticTool/NatoPhoneticTool';
+import TapCodeTool from './Tools/EncodingTools/TapCodeTool/TapCodeTool';
 // import SemaphoreTool from './Tools/EncodingTools/SemaphoreTool/SemaphoreTool';
 
 type WorkshopToolProps = {
@@ -61,6 +62,11 @@ function WorkshopTool({ tool }: WorkshopToolProps) {
         case "nato-phonetic":
             return (
                 <NatoPhoneticTool />
+            );
+
+        case "tap-code":
+            return (
+                <TapCodeTool />
             );
 
         // case "semaphore":

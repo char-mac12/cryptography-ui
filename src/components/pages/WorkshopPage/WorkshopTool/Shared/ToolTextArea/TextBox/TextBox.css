@@ -32,6 +32,9 @@
     max-width: 320px;
     height: 180px;
     resize: vertical;
+
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 
 .text-box textarea::placeholder,

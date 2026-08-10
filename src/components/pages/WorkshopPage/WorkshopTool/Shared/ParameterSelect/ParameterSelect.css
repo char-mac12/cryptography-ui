@@ -1,0 +1,45 @@
+.parameter-select {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.parameter-select label {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.parameter-select select {
+    width: fit-content;
+    min-width: 140px;
+
+    padding: 0.55rem 0.7rem;
+
+    background: var(--bg-card);
+    color: var(--text-heading);
+
+    border: 1px solid var(--border-default);
+
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.parameter-select select:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(201, 165, 90, 0.12);
+}
+
+.parameter-select select:hover {
+    border-color: var(--accent-primary);
+}
