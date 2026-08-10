@@ -18,6 +18,12 @@ function NavBar() {
             />
 
             <NavItem
+                title="Detector"
+                description="Identify possible ciphers"
+                path="/detector"
+            />
+
+            <NavItem
                 title="Frequency Analysis"
                 description="Analyse letter patterns"
                 path="/frequency"

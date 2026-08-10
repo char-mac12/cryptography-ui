@@ -9,6 +9,7 @@ import CipherCatalogPage from './components/pages/CipherCatalogPage/CipherCatalo
 import WorkshopPage from './components/pages/WorkshopPage/WorkshopPage'
 import FrequencyAnalysisPage from './components/pages/FrequencyAnalysisPage/FrequencyAnalysisPage'
 import ReferencePage from './components/pages/ReferencePage/ReferencePage'
+import DetectorPage from './components/pages/DetectorPage/DetectorPage'
 
 function App() {
     return (
@@ -32,6 +33,11 @@ function App() {
                         <Route 
                             path="/workshop/:toolId" 
                             element={<WorkshopPage />} 
+                        />
+
+                        <Route 
+                            path="/detector"
+                            element={<DetectorPage />}
                         />
 
                         <Route 

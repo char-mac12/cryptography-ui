@@ -1,5 +1,5 @@
 import ToolHeader from '../../../Shared/ToolHeader/ToolHeader';
-import { characterToMorse } from '../morseData';
+import { characterToMorse, morseToCharacter } from '../morseData';
 import './MorseConversionSection.css';
 
 type Props = {
@@ -12,29 +12,39 @@ function MorseConversionSection({
     mode
 }: Props) {
 
-    const characters = text
-        .toUpperCase()
-        .split("");
+    const conversions = mode === 'encode'
+        ? text.toUpperCase().split("")
+        : text.trim().split(" ");
 
     return (
         <div className="morse-conversion-section">
-            <ToolHeader title={mode === 'encode'
-                ? "Letter Conversion"
-                : "Morse Conversion"
-            } 
+            <ToolHeader 
+                title={mode === 'encode'
+                    ? "Letter Conversion"
+                    : "Morse Conversion"
+                } 
             />
 
             {text.length > 0 
-                ? characters.map((character, index) => (
+                ? conversions.map((character, index) => (
                     <div key={index} className="conversion-row">
                         <span>{character}</span>
                         <span>→</span>
                         <span>
-                            {characterToMorse(character)}
+                            {mode === 'encode'
+                                ? characterToMorse(character)
+                                : character === "/"
+                                    ? " "
+                                    : morseToCharacter(character)
+                            }
                         </span>
                     </div>
                 ))
-                : <p>Enter some text to see the inidividual letter conversions.</p>
+                : (
+                    <p>
+                        Enter some text to see the individual conversions.
+                    </p>
+                )
             }
         </div>
     );

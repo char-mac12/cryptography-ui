@@ -1,0 +1,12 @@
+.letter-conversion-table td:first-child {
+    color: var(--text-heading);
+} 
+
+.letter-conversion-table td:nth-child(2),
+.letter-conversion-table td:last-child {
+    color: var(--text-muted);
+}
+
+.letter-conversion-table td:nth-last-child(2) {
+    color: var(--status-success);
+}

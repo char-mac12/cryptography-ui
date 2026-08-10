@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import './VigenereTool.css'
 import InfoPanel from '../../Shared/InfoPanel/InfoPanel';
-import CipherModeSelector from '../../Shared/ModeSelector/ModeSelector';
 import CipherTextArea from '../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../CipherShared/FrequencySection/FrequencySection';
-import KeywordInput from '../../CipherShared/KeywordInput/KeywordInput';
+import KeywordInput from '../../Shared/KeywordInput/KeywordInput';
 import VigenereConversionSection from './VigenereConversionSection/VigenereConversionSection';
+import ModeSelector from '../../Shared/ModeSelector/ModeSelector';
 
 function VigenereTool() {
     const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
@@ -81,7 +81,14 @@ function VigenereTool() {
         <div className="caesar-tool">
             <InfoPanel text={infoPanelText} />
 
-            <CipherModeSelector mode={mode} setMode={setMode} />
+            <ModeSelector 
+                mode={mode} 
+                setMode={setMode} 
+                options={[
+                    { value: "encrypt", label: "Encrypt" },
+                    { value: "decrypt", label: "Decrypt" },
+                ]}
+            />
 
             <KeywordInput 
                 label="Keyword"

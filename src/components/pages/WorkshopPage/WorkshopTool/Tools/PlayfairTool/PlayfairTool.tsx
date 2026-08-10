@@ -4,7 +4,7 @@ import InfoPanel from '../../Shared/InfoPanel/InfoPanel';
 import CipherTextArea from '../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../CipherShared/FrequencySection/FrequencySection';
 import { generateKeywordSquare, playfairDecrypt, playfairDecryptionSteps, playfairEncrypt, playfairEncryptionSteps } from './playfairLogic';
-import KeywordInput from '../../CipherShared/KeywordInput/KeywordInput';
+import KeywordInput from '../../Shared/KeywordInput/KeywordInput';
 import KeywordPreparation from './KeywordPreparation/KeywordPreparation';
 import CollapsiblePanel from '../../Shared/CollapsiblePanel/CollapsiblePanel';
 import PlaintextPreparation from './PlaintextPreparation/PlaintextPreparation';

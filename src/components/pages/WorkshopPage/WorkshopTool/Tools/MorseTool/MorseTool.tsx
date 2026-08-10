@@ -16,9 +16,12 @@ function MorseTool() {
 
     const handleSwap = () => {
         setInput(output);
+        setOutput(input);
 
         setMode(currentMode =>
-            currentMode === 'encode' ? 'decode' : 'encode'
+            currentMode === "encode"
+                ? "decode"
+                : "encode"
         );
     };
 

@@ -1,0 +1,48 @@
+.cipher-parameter {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+}
+
+.cipher-parameter label {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cipher-parameter input,
+.cipher-parameter select {
+    padding: 0.5rem 0.7rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+
+    background-color: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: 3px;
+
+    outline: none;
+}
+
+.cipher-parameter input:focus,
+.cipher-parameter select:focus {
+    border-color: var(--accent-primary);
+}
+
+.cipher-parameter input:hover,
+.cipher-parameter select:hover {
+    border-color: var(--text-muted);
+}
+
+.cipher-parameter select {
+    cursor: pointer;
+}
+
+.cipher-parameter select option {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}

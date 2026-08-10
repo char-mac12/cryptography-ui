@@ -120,6 +120,18 @@ export const tools = [
     tags: ["Educational", "Encoding", "Beginner"],
   },
   {
+    id: "polybius",
+    title: "Polybius Square",
+    status: "Broken",
+    difficulty: "Beginner",
+    category: "Encoding System",
+    origin: "c. 150 BCE • Ancient Greece",
+    description: "A coordinate-based encoding system that represents letters using row and column numbers. It became the foundation for several classical ciphers.",
+    inputTypes: ["Text"],
+    hasVisualisation: true,
+    tags: ["Educational", "Encoding", "Historical"]
+  },
+  {
     id: "enigma",
     title: "Enigma Machine",
     status: "Broken",
