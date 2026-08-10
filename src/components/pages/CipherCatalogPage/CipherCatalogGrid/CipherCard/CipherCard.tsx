@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import type { Cipher } from "../../../../../types/Tool"
 import CipherDifficultyBadge from "./CipherDifficultyBadge/CipherDifficultyBadge"
 import CipherStatusBadge from "./CipherStatusBadge/CipherStatusBadge"
 import CipherTag from "./CipherTag/CipherTag"
 import InputTypeBadge from "./InputTypeBadge/InputTypeBadge"
 import OpenToolButton from "./OpenToolButton/OpenToolButton"
 import './CipherCard.css'
+import type { Tool } from "../../../../../types/Tool";
 
-function CipherCard({ cipher }: { cipher: Cipher} ) {
+function CipherCard({ cipher }: { cipher: Tool} ) {
     const navigate = useNavigate();
     
     return (

@@ -1,4 +1,3 @@
-import { createDefaultMachine } from './enigmaData';
 import type { EnigmaMachine, Rotor } from './enigmaTypes';
 
 function substitute(
