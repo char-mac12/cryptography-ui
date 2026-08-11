@@ -1,5 +1,6 @@
 export function encryptCaesar(text: string, shift: number): string {
     return text
+        .toUpperCase()
         .split("")
         .map(char => {
             const code = char.charCodeAt(0);
@@ -15,7 +16,6 @@ export function encryptCaesar(text: string, shift: number): string {
         .join("");
 }
 
-
 export function decryptCaesar(text: string, shift: number): string {
-    return encryptCaesar(text, 26 - shift);
+    return encryptCaesar(text, 26 - (shift % 26));
 }

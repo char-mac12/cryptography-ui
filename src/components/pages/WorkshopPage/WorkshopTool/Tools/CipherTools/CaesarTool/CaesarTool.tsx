@@ -7,6 +7,7 @@ import './CaesarTool.css'
 import CaesarBruteForceDecrypter from './CaesarBruteForceDecrypter/CaesarBruteForceDecrypter'
 import CaesarConversionSection from './ConversionSection/CaesarConversionSection'
 import CipherModeSelector from '../../../CipherShared/CipherModeSelector/CipherModeSelector'
+import { decryptCaesar, encryptCaesar } from '../../../../../../../cryptography/ciphers/caesar'
 // import CaesarWheelPanel from './CaesarWheelPanel/CaesarWheelPanel'
 
 function CaesarTool() {
@@ -20,7 +21,7 @@ function CaesarTool() {
         setPlaintext(text);
 
         if (mode === 'encrypt') {
-            setCiphertext(caesar(text, shift));
+            setCiphertext(encryptCaesar(text, shift));
         }
     }
 
@@ -28,7 +29,7 @@ function CaesarTool() {
         setCiphertext(text);
 
         if (mode === 'decrypt') {
-            setPlaintext(caesar(text, 26 - shift));
+            setPlaintext(decryptCaesar(text, shift));
         }
     }
 
@@ -38,26 +39,11 @@ function CaesarTool() {
         );
     };
 
-    const caesar = (text: string, shift: number) => {
-        return text
-            .toUpperCase()
-            .split("")
-            .map((char) => {
-                if (char < "A" || char > "Z") return char;
-
-                const position = char.charCodeAt(0) - 65;
-                const shifted = (position + shift) % 26;
-
-                return String.fromCharCode(shifted + 65);
-            })
-            .join("");
-    };
-
     useEffect(() => {
         if (mode === 'encrypt') {
-            setCiphertext(caesar(plaintext, shift));
+            setCiphertext(encryptCaesar(plaintext, shift));
         } else {
-            setPlaintext(caesar(ciphertext, 26 - shift));
+            setPlaintext(decryptCaesar(ciphertext, shift));
         }
     }, [shift]);
 
