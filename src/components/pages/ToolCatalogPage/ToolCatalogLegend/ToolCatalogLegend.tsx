@@ -1,12 +1,12 @@
-import './CipherCatalogLegend.css'
+import './ToolCatalogLegend.css'
 
-function CipherCatalogLegend() {
+function ToolCatalogLegend() {
     return (
-        <div className="cipher-catalog-legend">
+        <div className="tool-catalog-legend">
             <span className="visualisation-symbol">◉</span>
             <span>Interactive visualisation available</span>
         </div>
     )
 }
 
-export default CipherCatalogLegend
+export default ToolCatalogLegend

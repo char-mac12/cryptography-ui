@@ -5,8 +5,8 @@ function NavBar() {
     return (
         <nav className="navigation-bar">
             <NavItem
-                title="Cipher Catalog"
-                description="Explore classical ciphers"
+                title="Tool Catalog"
+                description="Explore cryptography ciphers and tools"
                 path="/catalog"
             />
 

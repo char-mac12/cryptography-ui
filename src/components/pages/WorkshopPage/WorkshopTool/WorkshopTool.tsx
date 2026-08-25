@@ -11,6 +11,7 @@ import RailFenceTool from './Tools/CipherTools/RailFenceTool/RailFenceTool';
 import NatoPhoneticTool from './Tools/EncodingTools/NatoPhoneticTool/NatoPhoneticTool';
 import TapCodeTool from './Tools/EncodingTools/TapCodeTool/TapCodeTool';
 import ROT13Tool from './Tools/CipherTools/Rot13Tool/Rot13Tool';
+import BaconTool from './Tools/CipherTools/BaconTool/BaconTool';
 // import SemaphoreTool from './Tools/EncodingTools/SemaphoreTool/SemaphoreTool';
 
 type WorkshopToolProps = {
@@ -73,7 +74,12 @@ function WorkshopTool({ tool }: WorkshopToolProps) {
         case "rot13":
             return (
                 <ROT13Tool />
-            )
+            );
+
+        case "bacon":
+            return (
+                <BaconTool />
+            );
 
         // case "semaphore":
         //     return (

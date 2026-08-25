@@ -1,4 +1,4 @@
-.cipher-card {
+.tool-card {
     background-color: #161310;
     border: 1px solid #2E281A;
     padding: 1.4rem;
@@ -6,18 +6,18 @@
     transition: border-color 0.2s ease;
 }
 
-.cipher-card:hover {
+.tool-card:hover {
     border-color: var(--accent-primary);
 
 }
 
-.cipher-card:hover .open-tool-button {
+.tool-card:hover .open-tool-button {
     background-color: var(--accent-primary);
     color: #161310;
     border-color: var(--accent-primary);
 }
 
-.cipher-card-header {
+.tool-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,44 +28,44 @@
     padding: 0.6rem;
 }
 
-.cipher-card-footer {
+.tool-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.cipher-title {
+.tool-title {
     font-family: var(--font-title);
     font-weight: 100;
 
     padding: 1rem 0rem 0.2rem 0rem;
 }
 
-.cipher-category {
+.tool-category {
     color: #755F37;
     font-family: var(--font-body);
     font-size: 0.9rem;
 }
 
-.cipher-origin {
+.tool-origin {
     font-family: var(--font-body);
     font-size: 0.8rem;
     padding: 1rem 0rem 1rem 0rem;
 }
 
-.cipher-description {
+.tool-description {
     font-family: var(--font-body);
     font-size: 0.8rem;
 }
 
-.cipher-card-footer {
+.tool-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
 
-.cipher-tags {
+.tool-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;

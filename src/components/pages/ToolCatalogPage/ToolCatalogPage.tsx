@@ -1,35 +1,35 @@
 import { useState } from "react";
-import CipherCatalogGrid from "./CipherCatalogGrid/CipherCatalogGrid"
-import CipherCatalogLegend from "./CipherCatalogLegend/CipherCatalogLegend"
-import "./CipherCatalogPage.css"
+import ToolCatalogGrid from "./ToolCatalogGrid/ToolCatalogGrid"
+import ToolCatalogLegend from "./ToolCatalogLegend/ToolCatalogLegend"
+import "./ToolCatalogPage.css"
 import SearchPanel from "./SearchPanel/SearchPanel"
 import { tools } from "../../../data/tools";
 
-function CipherCatalogPage() {
+function ToolCatalogPage() {
     const [searchTerm, setSearchTerm] = useState("");
 
-    const filteredCiphers = tools.filter(tool => 
+    const filteredTools = tools.filter(tool => 
         tool.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
-        <section className="cipher-catalog">
+        <section className="tool-catalog">
             {/* <aside className="sidebar">
-                <CipherSidebar />
+                <ToolCatalogSidebar />
             </aside> */}
             <main>
                 <SearchPanel 
                     searchTerm={searchTerm}
                     onSearchChange={setSearchTerm}
-                    results={filteredCiphers.length}
+                    results={filteredTools.length}
                 />
                 
-                <CipherCatalogGrid ciphers={filteredCiphers}/>
+                <ToolCatalogGrid tools={filteredTools}/>
                 
-                <CipherCatalogLegend />
+                <ToolCatalogLegend />
             </main>
         </section>
     )
 }
 
-export default CipherCatalogPage
+export default ToolCatalogPage

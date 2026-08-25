@@ -5,7 +5,7 @@ import Footer from './components/layout/Footer/Footer'
 import Header from './components/layout/Header/Header'
 import NavBar from './components/layout/NavBar/NavBar'
 
-import CipherCatalogPage from './components/pages/CipherCatalogPage/CipherCatalogPage'
+import ToolCatalogPage from './components/pages/ToolCatalogPage/ToolCatalogPage'
 import WorkshopPage from './components/pages/WorkshopPage/WorkshopPage'
 import FrequencyAnalysisPage from './components/pages/FrequencyAnalysisPage/FrequencyAnalysisPage'
 import ReferencePage from './components/pages/ReferencePage/ReferencePage'
@@ -27,7 +27,7 @@ function App() {
                         />
                         <Route 
                             path="/catalog" 
-                            element={<CipherCatalogPage />} 
+                            element={<ToolCatalogPage />} 
                         />
 
                         <Route 
@@ -52,7 +52,7 @@ function App() {
 
                         <Route 
                             path="*" 
-                            element={<CipherCatalogPage />} 
+                            element={<ToolCatalogPage />} 
                         />
                     </Routes>
                 </main>

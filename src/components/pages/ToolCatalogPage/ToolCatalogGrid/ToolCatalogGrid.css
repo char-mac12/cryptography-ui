@@ -1,4 +1,4 @@
-.cipher-grid {
+.tool-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
@@ -6,6 +6,6 @@
     padding: 0 1rem 1rem 1rem;
 }
 
-.cipher-input-types {
+.tool-input-types {
     display: flex;
 }
