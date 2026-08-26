@@ -5,7 +5,6 @@ type EncodingTextAreaProps = {
     input: string;
     output: string;
     setInput: (text: string) => void;
-    setOutput: (text: string) => void;
     onSwap: () => void;
 };
 

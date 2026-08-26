@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
@@ -12,11 +12,13 @@ function MorseTool() {
     const [mode, setMode] = useState<'encode' | 'decode'>('encode');
 
     const [input, setInput] = useState("");
-    const [output, setOutput] = useState("");
+    const output =
+        mode === "encode"
+            ? characterToMorse(input)
+            : morseToCharacter(input);
 
     const handleSwap = () => {
         setInput(output);
-        setOutput(input);
 
         setMode(currentMode =>
             currentMode === "encode"
@@ -24,14 +26,6 @@ function MorseTool() {
                 : "encode"
         );
     };
-
-    useEffect(() => {
-        if (mode === "encode") {
-            setOutput(characterToMorse(input));
-        } else {
-            setOutput(morseToCharacter(input));
-        }
-    }, [input, mode]);
 
     const infoPanelText = "Morse code encodes text characters and numbers as standardised sequences of two different signal durations, short and long. These are represented as dots and dashes.";
     const spacingNoticeText = "In Morse Code, a space is used to separate individual letters, while a / represents a space between words.";
@@ -47,7 +41,6 @@ function MorseTool() {
                 input={input}
                 output={output}
                 setInput={setInput}
-                setOutput={setOutput}
                 onSwap={handleSwap}
             />
 

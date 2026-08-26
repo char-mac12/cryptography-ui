@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
@@ -10,11 +10,13 @@ function NatoPhoneticTool() {
     const [mode, setMode] = useState<'encode' | 'decode'>('encode');
 
     const [input, setInput] = useState("");
-    const [output, setOutput] = useState("");
+    const output = 
+        mode === "encode"
+            ? characterToNatoPhonetic(input)
+            : natoPhoneticToCharacter(input);
 
     const handleSwap = () => {
         setInput(output);
-        setOutput(input);
 
         setMode(currentMode =>
             currentMode === "encode"
@@ -22,14 +24,6 @@ function NatoPhoneticTool() {
                 : "encode"
         );
     };
-
-    useEffect(() => {
-        if (mode === "encode") {
-            setOutput(characterToNatoPhonetic(input));
-        } else {
-            setOutput(natoPhoneticToCharacter(input));
-        }
-    }, [input, mode]);
 
     const infoPanelText = "A spelling alphabet which represents letters using distinctive code words such as Alpha, Bravo and Charlie. It is designed to make spoken communication clearer when letters may be difficult to distinguish.";
 
@@ -44,7 +38,6 @@ function NatoPhoneticTool() {
                 input={input}
                 output={output}
                 setInput={setInput}
-                setOutput={setOutput}
                 onSwap={handleSwap}
             />
 

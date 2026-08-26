@@ -12,7 +12,7 @@ export function findRepeatedNGrams(text: string, n: number): Record<string, numb
     }
 
     return Object.fromEntries(
-        Object.entries(positions).filter(([_, pos]) => pos.length > 1)
+        Object.entries(positions).filter(([, pos]) => pos.length > 1)
     );
 }
 

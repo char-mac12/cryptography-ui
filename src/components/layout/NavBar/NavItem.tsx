@@ -9,9 +9,7 @@ interface NavItemProps {
 }
 
 function NavItem(props: NavItemProps) {
-    const isExtraMatch = props.matchPath
-        ? useMatch(props.matchPath)
-        : null;
+    const isExtraMatch = useMatch(props.matchPath ?? '');
 
     return (
         <NavLink

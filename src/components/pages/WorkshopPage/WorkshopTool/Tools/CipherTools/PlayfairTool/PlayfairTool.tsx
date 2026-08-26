@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './PlayfairTool.css'
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
@@ -23,6 +23,16 @@ function PlayfairTool() {
     const [ciphertext, setCiphertext] = useState("");
 
     const square = generateKeywordSquare(keyword);
+
+    const displayedPlaintext =
+        mode === 'decrypt'
+            ? playfairDecrypt(ciphertext, keyword)
+            : plaintext;
+
+    const displayedCiphertext =
+        mode === 'encrypt'
+            ? playfairEncrypt(plaintext, keyword)
+            : ciphertext;
 
     const steps = mode === 'encrypt'
         ? playfairEncryptionSteps(plaintext, keyword)
@@ -52,18 +62,6 @@ function PlayfairTool() {
         }
     };
 
-    useEffect(() => {
-        if (mode !== "encrypt") return;
-
-        setCiphertext(playfairEncrypt(plaintext, keyword));
-    }, [plaintext, keyword, mode]);
-
-    useEffect(() => {
-        if (mode !== "decrypt") return;
-
-        setPlaintext(playfairDecrypt(ciphertext, keyword));
-    }, [ciphertext, keyword, mode]);
-
     const infoPanelText = "Encrypts pairs of letters using a 5×5 grid generated from a keyword. Designed to hide individual letter frequencies."
     const frequencyNoticeText = "Notice: Single-letter frequency analysis is less effective against the Playfair cipher as it encrypts pairs of letters rather than individual letters. This disguises the normal frequency patterns that are commonly used to analyse simple substitution ciphers.";
     const digraphNoticeText = "Notice: Digraph frequency analysis is more effective against the Playfair cipher as it examines the pairs of letters that are actually encrypted. Repeated digraph patterns can reveal statistical information about the ciphertext."
@@ -83,9 +81,9 @@ function PlayfairTool() {
 
             <CipherTextArea
                 mode={mode}
-                plaintext={plaintext}
+                plaintext={displayedPlaintext}
                 setPlaintext={handlePlaintextChange}
-                ciphertext={ciphertext}
+                ciphertext={displayedCiphertext}
                 setCiphertext={handleCiphertextChange}
                 onSwap={handleSwap}
             />
@@ -129,7 +127,7 @@ function PlayfairTool() {
 
             <CollapsiblePanel title={mode === 'encrypt' ? "Encryption Walkthrough" : "Decryption Walkthrough"}>
                 {keyword.length > 0 && plaintext.length > 0
-                    ? <PlayfairWalkthrough mode={mode} square={square} steps={steps} />
+                    ? <PlayfairWalkthrough key={`${mode}-${plaintext}-${ciphertext}-${keyword}`} mode={mode} square={square} steps={steps} />
                     : <p>{mode === 'encrypt' 
                             ? "Enter a keyword and plaintext to see how each letter pair is encrypted using the keyword square and Playfair rules..." 
                             : "Enter a keyword and ciphertext to see how each letter pair is decrypted using the keyword square and Plyfair rules..."

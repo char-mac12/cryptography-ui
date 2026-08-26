@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea'
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection'
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
@@ -13,6 +13,16 @@ function BaconTool() {
 
     const [plaintext, setPlaintext] = useState("");
     const [ciphertext, setCiphertext] = useState("");
+
+    const displayedPlaintext =
+        mode === "decrypt"
+            ? decryptBacon(ciphertext)
+            : plaintext;
+
+    const displayedCiphertext =
+        mode === "encrypt"
+            ? encryptBacon(plaintext)
+            : ciphertext;
 
     const handlePlaintextChange = (text: string) => {
         setPlaintext(text);
@@ -40,14 +50,6 @@ function BaconTool() {
         );
     };
 
-    useEffect(() => {
-        if (mode === 'encrypt') {
-            setCiphertext(encryptBacon(plaintext));
-        } else {
-            setPlaintext(decryptBacon(ciphertext));
-        }
-    }, [format]);
-
     const infoPanelText =
         "A substitution cipher which represents each letter using a five-character sequence of two symbols. This implementation uses the 26-letter Baconian alphabet.";
 
@@ -74,9 +76,9 @@ function BaconTool() {
 
             <CipherTextArea
                 mode={mode}
-                plaintext={plaintext}
+                plaintext={displayedPlaintext}
                 setPlaintext={handlePlaintextChange}
-                ciphertext={ciphertext}
+                ciphertext={displayedCiphertext}
                 setCiphertext={handleCiphertextChange}
                 onSwap={handleSwap}
             />

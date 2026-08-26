@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
@@ -14,13 +14,17 @@ function PolybiusTool() {
     const [keyword, setKeyword] = useState("");
 
     const [input, setInput] = useState("");
-    const [output, setOutput] = useState("");
 
     const square = generatePolybiusSquare(keyword);
 
+    const output = 
+        mode === "encode"
+            ? characterToPolybius(input, square)
+            : polybiusToCharacter(input, square);
+
     const handleSwap = () => {
         setInput(output);
-
+        
         setMode(currentMode =>
             currentMode === 'encode' ? 'decode' : 'encode'
         );
@@ -29,14 +33,6 @@ function PolybiusTool() {
     const handleKeywordChange = (text: string) => {
         setKeyword(text);
     };
-
-    useEffect(() => {
-        if (mode === "encode") {
-            setOutput(characterToPolybius(input, square));
-        } else {
-            setOutput(polybiusToCharacter(input, square));
-        }
-    }, [input, mode, square]);
 
     const infoPanelText = "The Polybius Square is a coordinate-based encoding system that represents letters using row and column numbers. It is the foundation for several classical ciphers.";
 
@@ -58,7 +54,6 @@ function PolybiusTool() {
                 input={input}
                 output={output}
                 setInput={setInput}
-                setOutput={setOutput}
                 onSwap={handleSwap}
             />
 

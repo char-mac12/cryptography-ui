@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './CipherParameter.css';
 
 interface CipherParameterProps {
@@ -18,11 +18,7 @@ function CipherParameter({
     max,
     options
 }: CipherParameterProps) {
-    const [inputValue, setInputValue] = useState(String(value));
-
-    useEffect(() => {
-        setInputValue(String(value));
-    }, [value]);
+    const [inputValue, setInputValue] = useState("");
 
     const handleChange = (newValue: string) => {
         setInputValue(newValue);

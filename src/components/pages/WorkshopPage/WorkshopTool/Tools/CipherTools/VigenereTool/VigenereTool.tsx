@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './VigenereTool.css'
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
@@ -66,13 +66,15 @@ function VigenereTool() {
             .join("");
     };
 
-    useEffect(() => {
-        if (mode === 'encrypt') {
-            setCiphertext(vigenere(plaintext, keyword, false));
-        } else {
-            setPlaintext(vigenere(ciphertext, keyword, true));
-        }
-    }, [keyword, mode]);
+    const displayedPlaintext =
+        mode === "decrypt"
+            ? vigenere(ciphertext, keyword, true)
+            : plaintext;
+
+    const displayedCiphertext =
+        mode === "encrypt"
+            ? vigenere(plaintext, keyword, false)
+            : plaintext;
 
     const infoPanelText = "A polyalphabetic substitution cipher which uses a repeating keyword to shift letters by different amounts in the alphabet."
     const frequencyNoticeText = "Notice: When a Vigenère Cipher encrypts text, each letter may be shifted by a different amount depending on the keyword. This spreads letter frequencies across multiple ciphertext letters, making patterns much harder to detect than in monoalphabetic ciphers."
@@ -99,9 +101,9 @@ function VigenereTool() {
 
             <CipherTextArea
                 mode={mode}
-                plaintext={plaintext}
+                plaintext={displayedPlaintext}
                 setPlaintext={handlePlaintextChange}
-                ciphertext={ciphertext}
+                ciphertext={displayedCiphertext}
                 setCiphertext={handleCiphertextChange}
                 onSwap={handleSwap}
             />

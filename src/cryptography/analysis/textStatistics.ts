@@ -99,6 +99,6 @@ export function countRepeatedCharacters(text: string): Record<string, number> {
     }
 
     return Object.fromEntries(
-        Object.entries(counts).filter(([_, count]) => count > 1)
+        Object.entries(counts).filter(([, count]) => count > 1)
     );
 }

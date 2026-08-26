@@ -36,7 +36,7 @@ export function findRepeatedSequences(
     }
 
     return Object.entries(repeats)
-        .filter(([_, positions]) => positions.length > 1)
+        .filter(([, positions]) => positions.length > 1)
         .map(([sequence, positions]) => ({
             sequence,
             positions

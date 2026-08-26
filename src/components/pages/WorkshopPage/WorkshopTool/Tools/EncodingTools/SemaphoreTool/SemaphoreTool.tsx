@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
@@ -9,11 +9,14 @@ function SemaphoreTool() {
     const [mode, setMode] = useState<'encode' | 'decode'>('encode');
 
     const [input, setInput] = useState("");
-    const [output, setOutput] = useState("");
+
+    const output = 
+        mode === "encode"
+            ? characterToSemaphore(input)
+            : semaphoreToCharacter(input);
 
     const handleSwap = () => {
         setInput(output);
-        setOutput(input);
 
         setMode(currentMode =>
             currentMode === "encode"
@@ -21,14 +24,6 @@ function SemaphoreTool() {
                 : "encode"
         );
     };
-
-    useEffect(() => {
-        if (mode === "encode") {
-            setOutput(characterToSemaphore(input));
-        } else {
-            setOutput(semaphoreToCharacter(input));
-        }
-    }, [input, mode]);
 
     const infoPanelText = "A visual signalling system which represents letters using the positions of two flags. Originally developed for long-distance communication, it was widely used in maritime signalling.";
 
@@ -43,7 +38,6 @@ function SemaphoreTool() {
                 input={input}
                 output={output}
                 setInput={setInput}
-                setOutput={setOutput}
                 onSwap={handleSwap}
             />
 

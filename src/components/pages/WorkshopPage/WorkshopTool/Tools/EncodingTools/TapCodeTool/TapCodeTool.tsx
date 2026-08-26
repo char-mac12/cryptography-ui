@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
@@ -25,30 +25,16 @@ function TapCodeTool() {
         useState<TapCodeFormat>('coordinates');
 
     const [input, setInput] = useState("");
-    const [output, setOutput] = useState("");
 
-    const handleSwap = () => {
-        setInput(output);
-        setOutput(input);
-
-        setMode(currentMode =>
-            currentMode === 'encode'
-                ? 'decode'
-                : 'encode'
-        );
-    };
-    
-    useEffect(() => {
+    const getOutput = () => {
         if (mode === "encode") {
             const tapCode = characterToTapCode(input);
 
             if (format === "taps") {
-                setOutput(tapCodeToTaps(tapCode));
-            } else {
-                setOutput(tapCode);
+                return tapCodeToTaps(tapCode);
             }
 
-            return;
+            return tapCode;
         }
 
         const tapCode =
@@ -56,8 +42,20 @@ function TapCodeTool() {
                 ? tapsToTapCode(input)
                 : input;
 
-        setOutput(tapCodeToCharacter(tapCode));
-    }, [input, mode, format]);
+        return tapCodeToCharacter(tapCode);
+    };
+
+    const output = getOutput();
+
+    const handleSwap = () => {
+        setInput(output);
+
+        setMode(currentMode =>
+            currentMode === 'encode'
+                ? 'decode'
+                : 'encode'
+        );
+    };
 
     const infoPanelText =
         "Tap Code represents letters using pairs of numbers corresponding to positions in a 5×5 grid. Each letter can be represented by tapping its row and column.";
@@ -94,7 +92,6 @@ function TapCodeTool() {
                 input={input}
                 output={output}
                 setInput={setInput}
-                setOutput={setOutput}
                 onSwap={handleSwap}
             />
 

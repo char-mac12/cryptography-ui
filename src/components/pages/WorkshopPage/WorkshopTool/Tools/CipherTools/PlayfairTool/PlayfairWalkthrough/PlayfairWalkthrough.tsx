@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { PlayfairStep } from '../playfairLogic';
 import PlayfairSquare from '../PlayfairSquare/PlayfairSquare';
 import './PlayfairWalkthrough.css';
@@ -17,17 +17,13 @@ function PlayfairWalkthrough({
     steps
 }: PlayfairWalkthroughProps) {
 
-    useEffect(() => {
-        setCurrentStep(0);
-    }, [mode, steps.length]);
+    const [currentStep, setCurrentStep] = useState(0);
 
     const ruleLabels = {
         "same-row": "Same row",
         "same-column": "Same column",
         "rectangle": "Rectangle rule"
     }
-
-    const [currentStep, setCurrentStep] = useState(0);
 
     if (steps.length === 0) {
         return null;
