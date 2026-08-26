@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea'
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection'
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel'
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
 import ShiftKeySlider from '../../../CipherShared/ShiftKeySlider/ShiftKeySlider'
 import './CaesarTool.css'
 import CaesarBruteForceDecrypter from './CaesarBruteForceDecrypter/CaesarBruteForceDecrypter'

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './AtbashTool.css'
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel';
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection';
 import AtbashTable from './AtbashTable/AtbashTable';

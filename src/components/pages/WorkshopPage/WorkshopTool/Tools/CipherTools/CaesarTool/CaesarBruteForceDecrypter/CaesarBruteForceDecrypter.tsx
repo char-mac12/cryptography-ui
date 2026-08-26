@@ -1,5 +1,5 @@
 import { decryptCaesar } from '../../../../../../../../cryptography/ciphers/caesar';
-import ToolHeader from '../../../../Shared/ToolHeader/ToolHeader';
+import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
 import './CaesarBruteForceDecrypter.css'
 
 function CaesarBruteForceDecrypter({ ciphertext }: { ciphertext: string }) {

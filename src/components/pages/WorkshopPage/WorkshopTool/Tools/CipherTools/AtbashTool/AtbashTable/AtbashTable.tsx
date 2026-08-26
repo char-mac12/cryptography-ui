@@ -1,4 +1,4 @@
-import ToolHeader from '../../../../Shared/ToolHeader/ToolHeader';
+import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
 import './AtbashTable.css'
 
 function AtbashTable() {

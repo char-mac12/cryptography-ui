@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea'
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection'
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel'
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
 import CaesarConversionSection from '../CaesarTool/ConversionSection/CaesarConversionSection'
 import CipherModeSelector from '../../../CipherShared/CipherModeSelector/CipherModeSelector'
 import { rot13 } from '../../../../../../../cryptography/ciphers/rot13'

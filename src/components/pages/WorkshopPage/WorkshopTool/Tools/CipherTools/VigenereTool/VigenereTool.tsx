@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './VigenereTool.css'
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel';
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection';
 import KeywordInput from '../../../Shared/KeywordInput/KeywordInput';

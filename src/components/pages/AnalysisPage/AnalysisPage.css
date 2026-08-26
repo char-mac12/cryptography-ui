@@ -1,0 +1,30 @@
+.analysis-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 2rem;
+
+    padding: 2rem;
+    min-width: 0;
+}
+
+.analysis-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.analysis-main h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: var(--font-title);
+
+    border-bottom: 1px solid var(--border-default);
+    padding-bottom: 0.4rem;
+}
+
+@media (max-width: 850px) {
+    .analysis-page {
+        grid-template-columns: 1fr;
+    }
+}

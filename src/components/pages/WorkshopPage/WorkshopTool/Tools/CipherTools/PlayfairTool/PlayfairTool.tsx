@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './PlayfairTool.css'
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel';
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection';
 import { generateKeywordSquare, playfairDecrypt, playfairDecryptionSteps, playfairEncrypt, playfairEncryptionSteps } from './playfairLogic';
@@ -8,7 +8,7 @@ import KeywordInput from '../../../Shared/KeywordInput/KeywordInput';
 import KeywordPreparation from './KeywordPreparation/KeywordPreparation';
 import CollapsiblePanel from '../../../Shared/CollapsiblePanel/CollapsiblePanel';
 import PlaintextPreparation from './PlaintextPreparation/PlaintextPreparation';
-import ToolHeader from '../../../Shared/ToolHeader/ToolHeader';
+import ToolHeader from '../../../../../Shared/ToolHeader/ToolHeader';
 import DigraphFrequencyTable from '../../../CipherShared/DigraphFrequencyTable/DigraphFrequencyTable';
 import PlayfairWalkthrough from './PlayfairWalkthrough/PlayfairWalkthrough';
 import CiphertextPreparation from './CiphertextPreparation/CiphertextPreparation';

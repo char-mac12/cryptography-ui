@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InfoPanel from "../../../Shared/InfoPanel/InfoPanel";
+import InfoPanel from "../../../../../Shared/InfoPanel/InfoPanel";
 import CipherModeSelector from "../../../CipherShared/CipherModeSelector/CipherModeSelector";
 import CipherParameter from "../../../CipherShared/CipherParameter/CipherParameter";
 import CipherTextArea from "../../../CipherShared/CipherTextArea/CipherTextArea";

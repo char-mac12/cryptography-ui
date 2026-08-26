@@ -1,4 +1,4 @@
-import { tools } from '../../../../data/tools';
+import { catalog } from '../../../../data/catalog';
 import './ToolSelector.css'
 
 type ToolSelectorProps = {
@@ -20,12 +20,12 @@ function ToolSelector(
                 value={selectedToolId}
                 onChange={(e) => setSelectedToolId(e.target.value)}
             >
-                {tools.map((tool) => (
+                {catalog.map((catalogItem) => (
                     <option
-                        key={tool.id}
-                        value={tool.id}
+                        key={catalogItem.id}
+                        value={catalogItem.id}
                     >
-                        {tool.title}
+                        {catalogItem.title}
                     </option>
                 ))}
             </select>

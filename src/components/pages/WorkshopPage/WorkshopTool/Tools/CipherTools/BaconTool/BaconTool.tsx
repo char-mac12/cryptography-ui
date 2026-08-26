@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea'
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection'
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel'
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
 import './BaconTool.css'
 import CipherModeSelector from '../../../CipherShared/CipherModeSelector/CipherModeSelector'
 import { decryptBacon, encryptBacon } from '../../../../../../../cryptography/ciphers/bacon'

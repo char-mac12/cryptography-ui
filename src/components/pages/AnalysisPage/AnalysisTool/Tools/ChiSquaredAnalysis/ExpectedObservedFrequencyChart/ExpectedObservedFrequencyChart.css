@@ -1,0 +1,100 @@
+.expected-observed-frequency-chart {
+    width: 100%;
+}
+
+.expected-observed-histogram {
+    height: 300px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 0.35rem;
+
+    padding-top: 1rem;
+
+    border-bottom: 1px solid var(--border-default);
+}
+
+.expected-observed-column {
+    flex: 1;
+    min-width: 0;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.expected-observed-bars {
+    height: calc(100% - 1.5rem);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 2px;
+}
+
+.expected-observed-bar {
+    width: 40%;
+
+    min-height: 2px;
+
+    flex-shrink: 0;
+
+    border-radius: 3px 3px 0 0;
+}
+
+.expected-observed-bar.observed {
+    background: var(--chart-observed);
+}
+
+.expected-observed-bar.expected {
+    background: var(--chart-expected);
+}
+
+.expected-observed-column > span {
+    height: 1.5rem;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.expected-observed-legend {
+    display: flex;
+    justify-content: center;
+
+    gap: 1.5rem;
+    margin-top: 1rem;
+
+    font-size: 0.85rem;
+}
+
+.expected-observed-legend > span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.legend-marker {
+    width: 0.65rem;
+    height: 0.65rem;
+
+    display: inline-block;
+
+    border-radius: 2px;
+}
+
+.observed-marker {
+    background: var(--chart-observed);
+}
+
+.expected-marker {
+    background: var(--chart-expected);
+}

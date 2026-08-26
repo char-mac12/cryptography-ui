@@ -14,19 +14,20 @@ function NavBar() {
                 title="Workshop"
                 description="Encrypt and decrypt messages"
                 path="/workshop/caesar"
-                matchPath="/workshop/:cipherId"
+                matchPath="/workshop/:toolId"
+            />
+
+            <NavItem 
+                title="Analysis"
+                description="Investigate ciphertext and uncover patterns"
+                path="/analysis/chi-squared"
+                matchPath="/workshop/:analysisId"
             />
 
             <NavItem
                 title="Detector"
                 description="Identify possible ciphers"
                 path="/detector"
-            />
-
-            <NavItem
-                title="Frequency Analysis"
-                description="Analyse letter patterns"
-                path="/frequency"
             />
 
             <NavItem

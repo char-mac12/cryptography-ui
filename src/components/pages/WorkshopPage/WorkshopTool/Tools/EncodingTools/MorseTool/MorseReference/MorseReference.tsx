@@ -1,5 +1,5 @@
 import NoticeBox from '../../../../Shared/NoticeBox/NoticeBox';
-import ToolHeader from '../../../../Shared/ToolHeader/ToolHeader';
+import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
 import { morseAlphabet } from '../morseData';
 import './MorseReference.css';
 

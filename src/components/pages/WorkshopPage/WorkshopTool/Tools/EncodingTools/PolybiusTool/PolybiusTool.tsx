@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel'
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
 import './PolybiusTool.css'
 import { characterToPolybius, generatePolybiusSquare, polybiusToCharacter } from './polybiusData';
 import PolybiusSquare from './PolybiusSquare/PolybiusSquare';
-import ToolHeader from '../../../Shared/ToolHeader/ToolHeader';
+import ToolHeader from '../../../../../Shared/ToolHeader/ToolHeader';
 import KeywordInput from '../../../Shared/KeywordInput/KeywordInput';
 
 function PolybiusTool() {

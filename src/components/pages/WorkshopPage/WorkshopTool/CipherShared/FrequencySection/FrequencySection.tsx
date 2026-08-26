@@ -1,5 +1,5 @@
 import NoticeBox from '../../Shared/NoticeBox/NoticeBox'
-import ToolHeader from '../../Shared/ToolHeader/ToolHeader'
+import ToolHeader from '../../../../Shared/ToolHeader/ToolHeader'
 import FrequencyChart from './FrequencyChart/FrequencyChart'
 import './FrequencySection.css'
 

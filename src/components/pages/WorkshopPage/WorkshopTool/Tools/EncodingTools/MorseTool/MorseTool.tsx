@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel'
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel'
 import NoticeBox from '../../../Shared/NoticeBox/NoticeBox';
 import './MorseTool.css'
 import MorseConversionSection from './MorseConversionSection/MorseConversionSection';

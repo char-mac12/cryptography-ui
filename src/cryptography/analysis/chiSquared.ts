@@ -1,24 +1,45 @@
 import { getEnglishLetterCounts, removeNonLetters } from "../utils/alphabet";
 import { getLetterFrequencies } from "./characterFrequency";
 
+export type ChiSquaredResult = {
+    score: number;
+    letterCount: number;
+    observedCounts: Record<string, number>;
+    expectedCounts: Record<string, number>;
+};
+
+export function analyseChiSquared(text: string): ChiSquaredResult {
+    const observedCounts = getLetterFrequencies(text);
+    const letterCount = removeNonLetters(text).length;
+
+    if (letterCount === 0) {
+        return {
+            score: 0,
+            letterCount: 0,
+            observedCounts,
+            expectedCounts: {},
+        };
+    }
+
+    const expectedCounts = getEnglishLetterCounts(letterCount);
+
+    let score = 0;
+
+    for (const letter in expectedCounts) {
+        const observed = observedCounts[letter] || 0;
+        const expected = expectedCounts[letter];
+
+        score += ((observed - expected) ** 2) / expected;
+    }
+
+    return {
+        score,
+        letterCount,
+        observedCounts,
+        expectedCounts,
+    };
+}
+
 export function calculateChiSquared(text: string): number {
-    const letter_frequencies = getLetterFrequencies(text);
-    const total_letters = removeNonLetters(text).length;
-
-    if (total_letters === 0) {
-        return 0;
-    }
-
-    const english_counts = getEnglishLetterCounts(total_letters);
-
-    let chi_squared = 0;
-
-    for (const letter in english_counts) {
-        const observed_frequency = letter_frequencies[letter] || 0;
-        const expected_frequency = english_counts[letter];
-        
-        chi_squared += ((observed_frequency - expected_frequency) ** 2) / expected_frequency;
-    }
-    
-    return chi_squared;
+    return analyseChiSquared(text).score;
 }

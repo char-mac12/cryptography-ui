@@ -1,16 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ToolSelector from "./ToolSelector/ToolSelector";
 import WorkshopTool from "./WorkshopTool/WorkshopTool";
-import ReferencePanel from "./ReferencePanel/ReferencePanel";
-import { tools } from "../../../data/tools";
+import ReferencePanel from "../Shared/ReferencePanel/ReferencePanel";
+import { catalog } from "../../../data/catalog";
 import './WorkshopPage.css'
 
 function WorkshopPage() {   
     const { toolId } = useParams();
     const navigate = useNavigate();
     
-    const selectedTool = tools.find(
-        (tool) => tool.id === toolId
+    const selectedTool = catalog.find(
+        (catalogItem) => catalogItem.id === toolId
     );
 
     if (!selectedTool) {

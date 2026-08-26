@@ -1,6 +1,6 @@
 import VigenereLetterConversionTable from './VigenereLetterConversionTable/VigenereLetterConversionTable';
 import './VigenereConversionSection.css';
-import ToolHeader from '../../../../Shared/ToolHeader/ToolHeader';
+import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
 import NoticeBox from '../../../../Shared/NoticeBox/NoticeBox';
 
 type Props = {

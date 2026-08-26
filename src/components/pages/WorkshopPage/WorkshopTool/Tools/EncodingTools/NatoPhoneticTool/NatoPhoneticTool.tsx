@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel';
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import NatoPhoneticReference from './NatoPhoneticReference/NatoPhoneticReference';
 import './NatoPhoneticTool.css'
 import { characterToNatoPhonetic, natoPhoneticToCharacter } from '../../../../../../../cryptography/encodings/nato-phonetic';

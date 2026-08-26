@@ -3,13 +3,13 @@ import ToolCatalogGrid from "./ToolCatalogGrid/ToolCatalogGrid"
 import ToolCatalogLegend from "./ToolCatalogLegend/ToolCatalogLegend"
 import "./ToolCatalogPage.css"
 import SearchPanel from "./SearchPanel/SearchPanel"
-import { tools } from "../../../data/tools";
+import { catalog } from "../../../data/catalog";
 
 function ToolCatalogPage() {
     const [searchTerm, setSearchTerm] = useState("");
 
-    const filteredTools = tools.filter(tool => 
-        tool.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredTools = catalog.filter(catalogItem => 
+        catalogItem.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (

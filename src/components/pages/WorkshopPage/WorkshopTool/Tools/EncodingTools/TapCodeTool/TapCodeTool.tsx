@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import EncodingModeSelector from '../../../EncodingShared/EncodingModeSelector/EncodingModeSelector';
 import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingTextArea';
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel';
-import ToolHeader from '../../../Shared/ToolHeader/ToolHeader';
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
+import ToolHeader from '../../../../../Shared/ToolHeader/ToolHeader';
 import ParameterSelect from '../../../Shared/ParameterSelect/ParameterSelect';
 import './TapCodeTool.css';
 

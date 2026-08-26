@@ -7,9 +7,9 @@ import NavBar from './components/layout/NavBar/NavBar'
 
 import ToolCatalogPage from './components/pages/ToolCatalogPage/ToolCatalogPage'
 import WorkshopPage from './components/pages/WorkshopPage/WorkshopPage'
-import FrequencyAnalysisPage from './components/pages/FrequencyAnalysisPage/FrequencyAnalysisPage'
 import ReferencePage from './components/pages/ReferencePage/ReferencePage'
 import DetectorPage from './components/pages/DetectorPage/DetectorPage'
+import AnalysisPage from './components/pages/AnalysisPage/AnalysisPage'
 
 function App() {
     return (
@@ -36,13 +36,13 @@ function App() {
                         />
 
                         <Route 
-                            path="/detector"
-                            element={<DetectorPage />}
+                            path="/analysis/:analysisId"
+                            element={<AnalysisPage />}
                         />
 
                         <Route 
-                            path="/frequency" 
-                            element={<FrequencyAnalysisPage />} 
+                            path="/detector"
+                            element={<DetectorPage />}
                         />
 
                         <Route 

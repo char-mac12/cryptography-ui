@@ -27,6 +27,10 @@
 
   /* Borders */
   --border-default: rgba(201, 165, 90, 0.18);
+
+  /* Charts */
+  --chart-observed: #c9a55a;
+  --chart-expected: #484ec0;
 }
 
 

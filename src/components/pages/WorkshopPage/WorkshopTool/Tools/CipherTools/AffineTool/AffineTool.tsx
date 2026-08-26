@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './AffineTool.css'
-import InfoPanel from '../../../Shared/InfoPanel/InfoPanel';
+import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherModeSelector from '../../../CipherShared/CipherModeSelector/CipherModeSelector';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection';

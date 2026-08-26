@@ -1,5 +1,5 @@
 import { NATO_PHONETIC } from '../../../../../../../../cryptography/encodings/nato-phonetic';
-import ToolHeader from '../../../../Shared/ToolHeader/ToolHeader';
+import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
 import './NatoPhoneticReference.css';
 
 function NatoPhoneticReference() {

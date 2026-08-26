@@ -1,4 +1,4 @@
-export const tools = [
+export const catalog = [
   {
     id: "caesar",
     title: "Caesar Cipher",

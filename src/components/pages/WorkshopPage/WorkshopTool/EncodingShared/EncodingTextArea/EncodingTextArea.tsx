@@ -1,4 +1,4 @@
-import ToolTextArea from '../../Shared/ToolTextArea/ToolTextArea';
+import ToolTextArea from '../../../../Shared/ToolTextArea/ToolTextArea';
 
 type EncodingTextAreaProps = {
     mode: 'encode' | 'decode';
