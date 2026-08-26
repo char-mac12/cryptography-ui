@@ -1,0 +1,93 @@
+.ic-scale {
+    width: 100%;
+    padding: 45px 15px 10px;
+    box-sizing: border-box;
+}
+
+.ic-scale-track {
+    position: relative;
+    height: 10px;
+    border-radius: 5px;
+    background: #e5e5e5;
+}
+
+/* Reference points */
+
+.ic-scale-reference {
+    position: absolute;
+    top: 50%;
+    width: 3px;
+    height: 22px;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background: #888;
+}
+
+/* User marker */
+
+.ic-scale-user {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.ic-scale-user-marker {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.ic-scale-user-label {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 0.85rem;
+}
+
+.ic-scale-user-label strong {
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+/* Reference labels */
+
+.ic-scale-references {
+    position: relative;
+    height: 45px;
+}
+
+.ic-scale-reference-label {
+    position: absolute;
+    top: 8px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+.ic-scale-reference-label span {
+    font-weight: 500;
+}
+
+.ic-scale-reference-label strong {
+    font-weight: 400;
+}
+
+/* Endpoints */
+
+.ic-scale-endpoints {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}

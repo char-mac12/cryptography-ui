@@ -1,6 +1,7 @@
 import type { Analysis } from '../../../../types/Analysis';
 import './AnalysisTool.css';
 import ChiSquaredAnalysis from './Tools/ChiSquaredAnalysis/ChiSquaredAnalysis';
+import IndexOfCoincidence from './Tools/IndexOfCoincidence/IndexOfCoincidence';
 
 // import FrequencyAnalysis from './Analyses/FrequencyAnalysis/FrequencyAnalysis';
 // import IndexOfCoincidence from './Analyses/IndexOfCoincidence/IndexOfCoincidence';
@@ -23,10 +24,10 @@ function AnalysisTool({ analysis }: AnalysisToolProps) {
         //         <FrequencyAnalysis />
         //     );
 
-        // case "index-of-coincidence":
-        //     return (
-        //         <IndexOfCoincidence />
-        //     );
+        case "index-of-coincidence":
+            return (
+                <IndexOfCoincidence />
+            );
 
         // case "kasiski-examination":
         //     return (

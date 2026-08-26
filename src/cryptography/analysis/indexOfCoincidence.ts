@@ -1,15 +1,40 @@
 import { removeNonLetters } from "../utils/alphabet";
-import { getLetterFrequencies } from "./characterFrequency"
+import { getLetterFrequencies } from "./characterFrequency";
 
-export function calculateIndexOfCoincidence(text: string): number {
-    const letter_frequencies = getLetterFrequencies(text);
-    const total_letters = removeNonLetters(text).length;
+export interface IndexOfCoincidenceResult {
+    score: number;
+    letterCount: number;
+    letterFrequencies: Record<string, number>;
+}
 
-    const numerator = Object.values(letter_frequencies)
-        .reduce((sum, frequency) => sum + frequency * (frequency - 1), 0);
-    
-    const denominator = total_letters * (total_letters - 1);
-    
-    const indexOfCoincidence = (numerator) / (denominator);
-    return indexOfCoincidence;
+export function calculateIndexOfCoincidence(
+    text: string
+): IndexOfCoincidenceResult {
+    const letterFrequencies = getLetterFrequencies(text);
+    const totalLetters = removeNonLetters(text).length;
+
+    // IC is undefined when there are fewer than two letters.
+    if (totalLetters < 2) {
+        return {
+            score: 0,
+            letterCount: totalLetters,
+            letterFrequencies,
+        };
+    }
+
+    const numerator = Object.values(letterFrequencies)
+        .reduce(
+            (sum, frequency) => sum + frequency * (frequency - 1),
+            0
+        );
+
+    const denominator = totalLetters * (totalLetters - 1);
+
+    const score = numerator / denominator;
+
+    return {
+        score,
+        letterCount: totalLetters,
+        letterFrequencies,
+    };
 }
