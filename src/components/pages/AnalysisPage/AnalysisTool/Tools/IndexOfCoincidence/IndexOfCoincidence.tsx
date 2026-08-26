@@ -7,7 +7,6 @@ import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import { calculateIndexOfCoincidence } from '../../../../../../cryptography/analysis/indexOfCoincidence';
 import FrequencyChart from '../../../../WorkshopPage/WorkshopTool/CipherShared/FrequencySection/FrequencyChart/FrequencyChart';
-import IndexOfCoincidenceScale from './IndexOfCoincidenceScale/IndexOfCoincidenceScale';
 
 function IndexOfCoincidence() {
     const [text, setText] = useState("");

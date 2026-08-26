@@ -25,7 +25,9 @@ export function analyseText(text: string): TextAnalysis {
         },
 
         coincidence: {
-            indexOfCoincidence: calculateIndexOfCoincidence(normalised),
+            indexOfCoincidence: calculateIndexOfCoincidence(normalised).score,
+            letterCount: calculateIndexOfCoincidence(normalised).letterCount,
+            letterFrequencies: calculateIndexOfCoincidence(normalised).letterFrequencies,
             repeatedCharacters: countRepeatedCharacters(normalised)
         },
 
@@ -65,6 +67,8 @@ export interface TextAnalysis {
 
     coincidence: {
         indexOfCoincidence: number;
+        letterCount: number;
+        letterFrequencies: Record<string, number>;
         repeatedCharacters: Record<string, number>;
     };
 

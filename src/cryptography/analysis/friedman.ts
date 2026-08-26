@@ -20,7 +20,7 @@ export function friedmanTest(text: string, maxKeyLength: number): Record<number,
 
         const averageIC =
             columns.reduce(
-                (sum, column) => sum + calculateIndexOfCoincidence(column),
+                (sum, column) => sum + calculateIndexOfCoincidence(column).score,
                 0
             ) / columns.length;
 
