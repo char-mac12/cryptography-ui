@@ -46,4 +46,15 @@ export const analyses = [
         hasVisualisation: true,
         tags: ["Educational", "Cryptanalysis", "Statistical"],
     },
+    {
+        id: "text-statistics",
+        title: "Text Statistics",
+        difficulty: "Beginner",
+        category: "Statistical Analysis",
+        origin: "Classical cryptanalysis",
+        description: "Provides general statistical information about a text, including character, word, letter, number, whitespace and punctuation counts.",
+        inputTypes: ["Text"],
+        hasVisualisation: true,
+        tags: ["Educational", "Cryptanalysis", "Statistical", "Beginner"],
+    },
 ];

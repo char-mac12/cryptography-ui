@@ -2,6 +2,7 @@ import type { Analysis } from '../../../../types/Analysis';
 import './AnalysisTool.css';
 import ChiSquaredAnalysis from './Tools/ChiSquaredAnalysis/ChiSquaredAnalysis';
 import IndexOfCoincidence from './Tools/IndexOfCoincidence/IndexOfCoincidence';
+import TextStatistics from './Tools/TextStatistics/TextStatistics';
 
 // import FrequencyAnalysis from './Analyses/FrequencyAnalysis/FrequencyAnalysis';
 // import IndexOfCoincidence from './Analyses/IndexOfCoincidence/IndexOfCoincidence';
@@ -14,6 +15,11 @@ type AnalysisToolProps = {
 function AnalysisTool({ analysis }: AnalysisToolProps) {
 
     switch (analysis.id) {
+        case "text-statistics":
+            return (
+                <TextStatistics />
+            );
+
         case "chi-squared":
             return (
                 <ChiSquaredAnalysis />
