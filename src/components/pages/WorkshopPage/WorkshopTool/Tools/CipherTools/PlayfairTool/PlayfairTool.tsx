@@ -3,7 +3,7 @@ import './PlayfairTool.css'
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection';
-import { generateKeywordSquare, playfairDecrypt, playfairDecryptionSteps, playfairEncrypt, playfairEncryptionSteps } from './playfairLogic';
+import { decryptPlayfair, encryptPlayfair, generateKeywordSquare, playfairDecryptionSteps, playfairEncryptionSteps } from '../../../../../../../cryptography/ciphers/playfair';
 import KeywordInput from '../../../Shared/KeywordInput/KeywordInput';
 import KeywordPreparation from './KeywordPreparation/KeywordPreparation';
 import CollapsiblePanel from '../../../Shared/CollapsiblePanel/CollapsiblePanel';
@@ -26,12 +26,12 @@ function PlayfairTool() {
 
     const displayedPlaintext =
         mode === 'decrypt'
-            ? playfairDecrypt(ciphertext, keyword)
+            ? decryptPlayfair(ciphertext, keyword)
             : plaintext;
 
     const displayedCiphertext =
         mode === 'encrypt'
-            ? playfairEncrypt(plaintext, keyword)
+            ? encryptPlayfair(plaintext, keyword)
             : ciphertext;
 
     const steps = mode === 'encrypt'
@@ -56,9 +56,9 @@ function PlayfairTool() {
         setMode(newMode);
 
         if (newMode === 'encrypt') {
-            setCiphertext(playfairEncrypt(plaintext, keyword));
+            setCiphertext(encryptPlayfair(plaintext, keyword));
         } else {
-            setPlaintext(playfairDecrypt(ciphertext, keyword));
+            setPlaintext(decryptPlayfair(ciphertext, keyword));
         }
     };
 

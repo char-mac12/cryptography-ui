@@ -1,4 +1,4 @@
-import { getDigraphFrequencies } from "../../Tools/CipherTools/PlayfairTool/playfairLogic";
+import { getDigraphFrequencies } from "../../../../../../cryptography/ciphers/playfair";
 import NoticeBox from "../../Shared/NoticeBox/NoticeBox";
 import './DigraphFrequencyTable.css'
 

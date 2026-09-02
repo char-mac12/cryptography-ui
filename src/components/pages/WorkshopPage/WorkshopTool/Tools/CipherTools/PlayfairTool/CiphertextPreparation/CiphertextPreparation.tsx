@@ -1,4 +1,4 @@
-import { prepareCiphertext } from '../playfairLogic';
+import { prepareCiphertext } from '../../../../../../../../cryptography/ciphers/playfair';
 import './CiphertextPreparation.css'
 
 function CiphertextPreparation({

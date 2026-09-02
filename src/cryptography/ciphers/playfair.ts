@@ -245,7 +245,7 @@ function encryptRectangleRulePair(
     )
 }
 
-export function playfairEncrypt(
+export function encryptPlayfair(
     text: string,
     keyword: string
 ) {
@@ -344,7 +344,7 @@ function decryptRectangleRulePair(
     );
 }
 
-export function playfairDecrypt(
+export function decryptPlayfair(
     text: string,
     keyword: string
 ) {
