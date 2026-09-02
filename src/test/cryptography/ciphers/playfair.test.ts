@@ -92,7 +92,7 @@ describe('Playfair Cipher', () => {
         it('converts J to I', () => {
             expect(preparePlaintext('JIG')).toEqual([
                 'IX',
-                'IGq'
+                'IG'
             ])
         })
 
