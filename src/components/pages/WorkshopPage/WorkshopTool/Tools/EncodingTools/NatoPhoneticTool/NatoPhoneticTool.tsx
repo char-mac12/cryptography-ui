@@ -4,7 +4,7 @@ import EncodingTextArea from '../../../EncodingShared/EncodingTextArea/EncodingT
 import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import NatoPhoneticReference from './NatoPhoneticReference/NatoPhoneticReference';
 import './NatoPhoneticTool.css'
-import { characterToNatoPhonetic, natoPhoneticToCharacter } from '../../../../../../../cryptography/encodings/nato-phonetic';
+import { characterToNatoPhonetic, natoPhoneticToCharacter } from '../../../../../../../cryptography/encodings/natoPhonetic';
 
 function NatoPhoneticTool() {
     const [mode, setMode] = useState<'encode' | 'decode'>('encode');

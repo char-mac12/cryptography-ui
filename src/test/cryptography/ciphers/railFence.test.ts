@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createRails, fillRailsFromCiphertext, markRailPositions, placePlaintextOnRails, decryptRailFence, encryptRailFence, readRailsByRow, readRailsByRowAsList, readRailsInZigZagOrder } from '../../../cryptography/ciphers/rail-fence'
+import { createRails, fillRailsFromCiphertext, markRailPositions, placePlaintextOnRails, decryptRailFence, encryptRailFence, readRailsByRow, readRailsByRowAsList, readRailsInZigZagOrder } from '../../../cryptography/ciphers/railFence'
 import { normaliseText } from '../../../cryptography/utils/textNormaliser'
 
 describe('Rail Fence Cipher', () => {
