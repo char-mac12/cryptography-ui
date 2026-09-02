@@ -7,7 +7,7 @@ export function encryptCaesar(text: string, shift: number): string {
 
             if (code >= 65 && code <= 90) {
                 return String.fromCharCode(
-                    ((code - 65 + shift) % 26) + 65
+                    ((code - 65 + shift) % 26 + 26) % 26 + 65
                 );
             }
 

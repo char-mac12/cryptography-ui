@@ -1,3 +1,5 @@
+import { normaliseText } from "../utils/textNormaliser";
+
 const BACON_ALPHABET: Record<string, string> = {
     A: "AAAAA",
     B: "AAAAB",
@@ -28,10 +30,11 @@ const BACON_ALPHABET: Record<string, string> = {
 };
 
 export function encryptBacon(text: string): string {
-    return text
-        .toUpperCase()
+    const normalisedText = normaliseText(text);
+
+    return normalisedText
         .split("")
-        .map(char => BACON_ALPHABET[char] ?? char)
+        .map(char => BACON_ALPHABET[char])
         .join(" ");
 }
 
