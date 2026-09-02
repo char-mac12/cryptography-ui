@@ -18,7 +18,7 @@ describe('Vigenere Cipher', () => {
         })
 
         it('preserves punctuation and numbers', () => {
-            expect(encryptVigenere('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.', 'KEY')).toBe('(K)F!,A"£$%^&*-_+=[]@#~/|\\<>?.')
+            expect(encryptVigenere('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.123', 'KEY')).toBe('(K)F!,A"£$%^&*-_+=[]@#~/|\\<>?.123')
         })
 
         it('returns an empty string for empty input', () => {

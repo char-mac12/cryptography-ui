@@ -1,5 +1,5 @@
 import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
-import { characterToMorse, morseToCharacter } from '../morseData';
+import { characterToMorse, morseToCharacter } from '../../../../../../../../cryptography/encodings/morseCode';
 import './MorseConversionSection.css';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { NATO_PHONETIC } from '../../../../../../../../cryptography/encodings/nato-phonetic';
+import { NATO_PHONETIC } from '../../../../../../../../cryptography/encodings/natoPhonetic';
 import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
 import './NatoPhoneticReference.css';
 

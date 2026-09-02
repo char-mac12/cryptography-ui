@@ -6,7 +6,7 @@ import NoticeBox from '../../../Shared/NoticeBox/NoticeBox';
 import './MorseTool.css'
 import MorseConversionSection from './MorseConversionSection/MorseConversionSection';
 import MorseReference from './MorseReference/MorseReference';
-import { characterToMorse, morseToCharacter } from './morseData';
+import { characterToMorse, morseToCharacter } from '../../../../../../../cryptography/encodings/morseCode';
 
 function MorseTool() {
     const [mode, setMode] = useState<'encode' | 'decode'>('encode');

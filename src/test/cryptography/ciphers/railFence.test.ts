@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createRails, fillRailsFromCiphertext, markRailPositions, placePlaintextOnRails, decryptRailFence, encryptRailFence, readRailsByRow, readRailsByRowAsList, readRailsInZigZagOrder } from '../../../cryptography/ciphers/rail-fence'
+import { createRails, fillRailsFromCiphertext, markRailPositions, placePlaintextOnRails, decryptRailFence, encryptRailFence, readRailsByRow, readRailsByRowAsList, readRailsInZigZagOrder } from '../../../cryptography/ciphers/railFence'
 import { normaliseText } from '../../../cryptography/utils/textNormaliser'
 
 describe('Rail Fence Cipher', () => {
@@ -19,7 +19,7 @@ describe('Rail Fence Cipher', () => {
         })
 
         it('removes punctuation and numbers', () => {
-            expect(encryptRailFence('(H)E!,L"£$%^L&*-_+O=[]@#~/|\\<>?.', 3)).toBe('HOELL')
+            expect(encryptRailFence('(H)E!,L"£$%^L&*-_+O=[]@#~/|\\<>?.123', 3)).toBe('HOELL')
         })
 
         it('returns an empty string for empty input', () => {

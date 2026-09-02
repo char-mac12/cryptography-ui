@@ -22,7 +22,7 @@ describe('Atbash Cipher', () => {
         })
 
         it('preserves punctuation and numbers', () => {
-            expect(atbash('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.')).toBe('(Z)Y!,X"£$%^&*-_+=[]@#~/|\\<>?.')
+            expect(atbash('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.123')).toBe('(Z)Y!,X"£$%^&*-_+=[]@#~/|\\<>?.123')
         })
 
         it('encrypts a full message', () => {

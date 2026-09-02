@@ -42,7 +42,8 @@ export function characterToTapCode(text: string): string {
     return text
         .toUpperCase()
         .split("")
-        .map(character => TAP_CODE[character] ?? character)
+        .filter(character => TAP_CODE[character] !== undefined)
+        .map(character => TAP_CODE[character])
         .join(" ");
 }
 
@@ -68,7 +69,7 @@ export function tapCodeToTaps(text: string): string {
 
             return ".".repeat(row) + " " + ".".repeat(column);
         })
-        .join(" ");
+        .join("  ");
 }
 
 export function tapsToTapCode(text: string): string {

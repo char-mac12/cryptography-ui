@@ -7,7 +7,7 @@ import {
     readRailsInZigZagOrder,
     type Rails,
     readRailsByRowAsList,
-} from "../../../../../../../../cryptography/ciphers/rail-fence";
+} from "../../../../../../../../cryptography/ciphers/railFence";
 import './RailFenceVisualisation.css'
 
 type RailFenceVisualisationProps = {

@@ -1,5 +1,5 @@
 import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
-import { decryptRailFence } from '../../../../../../../../cryptography/ciphers/rail-fence';
+import { decryptRailFence } from '../../../../../../../../cryptography/ciphers/railFence';
 import './RailFenceBruteForceDecrypter.css';
 import CipherParameter from '../../../../CipherShared/CipherParameter/CipherParameter';
 import { useState } from 'react';

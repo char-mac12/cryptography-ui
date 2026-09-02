@@ -4,7 +4,7 @@ import CipherModeSelector from "../../../CipherShared/CipherModeSelector/CipherM
 import CipherParameter from "../../../CipherShared/CipherParameter/CipherParameter";
 import CipherTextArea from "../../../CipherShared/CipherTextArea/CipherTextArea";
 import FrequencySection from "../../../CipherShared/FrequencySection/FrequencySection";
-import { decryptRailFence, encryptRailFence } from "../../../../../../../cryptography/ciphers/rail-fence";
+import { decryptRailFence, encryptRailFence } from "../../../../../../../cryptography/ciphers/railFence";
 import RailFenceVisualisation from "./RailFenceVisualisation/RailFenceVisualisation";
 import { removeNonLetters } from "../../../../../../../cryptography/utils/alphabet";
 import RailFenceBruteForceDecrypter from "./RailFenceBruteForceDecrypter/RailFenceBruteForceDecrypter";

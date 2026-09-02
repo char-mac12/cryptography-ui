@@ -1,4 +1,5 @@
 export const NATO_PHONETIC: Record<string, string> = {
+
     A: "Alfa",
     B: "Bravo",
     C: "Charlie",
@@ -42,6 +43,11 @@ export function characterToNatoPhonetic(text: string): string {
         .toUpperCase()
         .split("")
         .map((character) => {
+
+            if (character === " ") {
+                return "/";
+            }
+
             return NATO_PHONETIC[character] ?? character;
         })
         .join(" ");
@@ -52,6 +58,11 @@ export function natoPhoneticToCharacter(text: string): string {
         .trim()
         .split(/\s+/)
         .map((word) => {
+
+            if (word === "/") {
+                return " ";
+            }
+
             return NATO_TO_CHARACTER[word.toUpperCase()] ?? word;
         })
         .join("");

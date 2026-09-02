@@ -22,7 +22,7 @@ describe('Rot13 Cipher', () => {
         })
 
         it('preserves punctuation and numbers', () => {
-            expect(rot13('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.')).toBe('(N)O!,P"£$%^&*-_+=[]@#~/|\\<>?.')
+            expect(rot13('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.123')).toBe('(N)O!,P"£$%^&*-_+=[]@#~/|\\<>?.123')
         })
 
         it('encrypts a full message', () => {

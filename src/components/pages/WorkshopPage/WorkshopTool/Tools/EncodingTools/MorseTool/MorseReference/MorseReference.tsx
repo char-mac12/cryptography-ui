@@ -1,6 +1,6 @@
 import NoticeBox from '../../../../Shared/NoticeBox/NoticeBox';
 import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
-import { morseAlphabet } from '../morseData';
+import { morseAlphabet } from '../../../../../../../../cryptography/encodings/morseCode';
 import './MorseReference.css';
 
 function MorseReference() {
