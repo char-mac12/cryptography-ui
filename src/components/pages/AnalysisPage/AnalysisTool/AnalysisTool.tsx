@@ -1,6 +1,7 @@
 import type { Analysis } from '../../../../types/Analysis';
 import './AnalysisTool.css';
 import ChiSquaredAnalysis from './Tools/ChiSquaredAnalysis/ChiSquaredAnalysis';
+import Entropy from './Tools/Entropy/Entropy';
 import IndexOfCoincidence from './Tools/IndexOfCoincidence/IndexOfCoincidence';
 
 // import FrequencyAnalysis from './Analyses/FrequencyAnalysis/FrequencyAnalysis';
@@ -27,6 +28,11 @@ function AnalysisTool({ analysis }: AnalysisToolProps) {
         case "index-of-coincidence":
             return (
                 <IndexOfCoincidence />
+            );
+
+        case "entropy":
+            return (
+                <Entropy />
             );
 
         // case "kasiski-examination":

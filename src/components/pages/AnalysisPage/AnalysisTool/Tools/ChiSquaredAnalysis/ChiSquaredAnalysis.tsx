@@ -7,6 +7,7 @@ import ToolHeader from '../../../../Shared/ToolHeader/ToolHeader';
 import InfoPanel from '../../../../Shared/InfoPanel/InfoPanel';
 import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import AnalysisResult from '../Shared/AnalysisResult/AnalysisResult';
 
 function ChiSquaredAnalysis() {
     const [text, setText] = useState("");
@@ -32,34 +33,24 @@ function ChiSquaredAnalysis() {
                 readOnly={false}
             />
 
-            <div className="chi-squared-result">
-                <h3>Chi-Squared Score</h3>
-
-                {hasText ? (
-                    <>
-                        <div className="chi-squared-score">
-                            {result.score.toFixed(2)}
+            <AnalysisResult
+                title="Chi-Squared Score"
+                score={hasText ? result.score : undefined}
+                description={
+                    hasText
+                        ? "Lower scores indicate that the observed letter frequencies are closer to the expected frequencies of English text."
+                        : "Enter ciphertext to calculate the chi-squared score."
+                }
+            >
+                {hasText && (
+                    <div className="analysis-statistics">
+                        <div>
+                            <span>Letters analysed: </span>
+                            <strong>{result.letterCount}</strong>
                         </div>
-
-                        <p>
-                            Lower scores indicate that the observed letter
-                            frequencies are closer to the expected frequencies
-                            of English text.
-                        </p>
-
-                        <div className="chi-squared-statistics">
-                            <div>
-                                <span>Letters analysed: </span>
-                                <strong>{result.letterCount}</strong>
-                            </div>
-                        </div>
-                    </>
-                ) : (
-                    <p>
-                        Enter ciphertext to calculate the chi-squared score.
-                    </p>
+                    </div>
                 )}
-            </div>
+            </AnalysisResult>
 
             {hasText && (
                 <div className="chi-squared-frequencies">
@@ -71,7 +62,6 @@ function ChiSquaredAnalysis() {
                     />
                 </div>
             )}
-
         </div>
     );
 }

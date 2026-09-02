@@ -1,27 +1,5 @@
-.index-of-coincidence-result {
-    padding: 1.5rem;
-    border: 1px solid var(--border-default);
-    border-radius: 8px;
-    margin: 2rem 0 0 0;
-}
-
-.index-of-coincidence-result h3 {
-    margin: 0 0 1rem;
-    font-family: var(--font-title);
-    font-weight: 500;
-}
-
-.index-of-coincidence-result p {
-    margin: 0;
-    line-height: 1.5;
-}
-
-.index-of-coincidence-score {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.index-of-coincidence-statistics {
-    margin: 1rem 0rem 0rem 0rem;
+.index-of-coincidence {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }

@@ -46,4 +46,15 @@ export const analyses = [
         hasVisualisation: true,
         tags: ["Educational", "Cryptanalysis", "Statistical"],
     },
+    {
+        id: "entropy",
+        title: "Entropy",
+        difficulty: "Intermediate",
+        category: "Statistical Analysis",
+        origin: "1948 • Claude Shannon",
+        description: "Measures the uncertainty or randomness of a text based on the probability of each letter occurring. Higher entropy indicates a less predictable and more evenly distributed letter frequency.",
+        inputTypes: ["Text"],
+        hasVisualisation: true,
+        tags: ["Educational", "Cryptanalysis", "Statistical"],
+    },
 ];
