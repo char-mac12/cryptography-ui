@@ -26,7 +26,7 @@ describe('Bacon Cipher', () => {
         })
 
         it('punctuation and numbers are removed', () => {
-            expect(encryptBacon('(A)B!,C"£$%^&*-_+=[]@#~/|\<>?.')).toBe('AAAAA AAAAB AAABA')
+            expect(encryptBacon('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.')).toBe('AAAAA AAAAB AAABA')
         })
 
         it('encrypts a full message', () => {

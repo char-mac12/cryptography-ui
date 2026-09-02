@@ -34,7 +34,7 @@ describe('Caesar Cipher', () => {
         })
 
         it('preserves punctuation and numbers', () => {
-            expect(encryptCaesar('(A)B!,C"£$%^&*-_+=[]@#~/|\<>?.', 3)).toBe('(D)E!,F"£$%^&*-_+=[]@#~/|\<>?.')
+            expect(encryptCaesar('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.', 3)).toBe('(D)E!,F"£$%^&*-_+=[]@#~/|\\<>?.')
         })
 
         it('returns the same text with a shift of zero', () => {
@@ -83,7 +83,7 @@ describe('Caesar Cipher', () => {
         })
 
         it('preserves punctuation and numbers', () => {
-            expect(decryptCaesar('(D)E!,F"£$%^&*-_+=[]@#~/|\<>?.', 3)).toBe('(A)B!,C"£$%^&*-_+=[]@#~/|\<>?.')
+            expect(decryptCaesar('(D)E!,F"£$%^&*-_+=[]@#~/|\\<>?.', 3)).toBe('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.')
         })
 
         it('returns the same text with a shift of zero', () => {
