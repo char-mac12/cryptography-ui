@@ -4,7 +4,9 @@ import { normaliseText } from "../utils/textNormaliser";
 export function encryptVigenere(text: string, keyword: string): string {
     const cleanKey = normaliseText(keyword);
 
-    if (!cleanKey) return text;
+    if (!cleanKey) {
+        throw new Error("Keyword must not be empty");
+    }
 
     let keywordIndex = 0;
 
@@ -33,7 +35,9 @@ export function encryptVigenere(text: string, keyword: string): string {
 export function decryptVigenere(text: string, keyword: string): string {
     const cleanKey = normaliseText(keyword);
 
-    if (!cleanKey) return text;
+    if (!cleanKey) {
+        throw new Error("Keyword must not be empty");
+    }
 
     let keywordIndex = 0;
 
