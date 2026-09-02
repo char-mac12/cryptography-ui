@@ -1,15 +1,37 @@
-import "./ReferencePage.css"
+import NavItem from "../../layout/NavBar/NavItem/NavItem";
+import "./ReferencePage.css";
 
 function ReferencePage() {
     return (
-        <section className="cipher-catalog">
-            <h1>Work in progress!</h1>
+        <section className="reference-page">
+            <h1>Reference</h1>
 
             <p>
-                Tables and history. Could include a scrollable timeline. Can you crack it mode would be cool. crypto playground where you can chain them together would be cool.
+                Explore the history, terminology, and reference material
+                behind cryptography.
             </p>
+
+            <div className="reference-options">
+                <NavItem
+                    title="Timeline"
+                    description="Explore the history and development of cryptography"
+                    path="/reference/timeline"
+                />
+
+                <NavItem
+                    title="Definitions"
+                    description="Learn key cryptography terms and concepts"
+                    path="/reference/definitions"
+                />
+
+                <NavItem
+                    title="Tables"
+                    description="View useful cryptography reference tables"
+                    path="/reference/tables"
+                />
+            </div>
         </section>
-    )
+    );
 }
 
-export default ReferencePage
+export default ReferencePage;
