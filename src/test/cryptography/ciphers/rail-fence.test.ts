@@ -1,80 +1,80 @@
 import { describe, expect, it } from 'vitest'
-import { createRails, fillRailsFromCiphertext, markRailPositions, placePlaintextOnRails, railFenceDecrypt, railFenceEncrypt, readRailsByRow, readRailsByRowAsList, readRailsInZigZagOrder } from '../../../cryptography/ciphers/rail-fence'
+import { createRails, fillRailsFromCiphertext, markRailPositions, placePlaintextOnRails, decryptRailFence, encryptRailFence, readRailsByRow, readRailsByRowAsList, readRailsInZigZagOrder } from '../../../cryptography/ciphers/rail-fence'
 import { normaliseText } from '../../../cryptography/utils/textNormaliser'
 
 describe('Rail Fence Cipher', () => {
     
-    describe('railFenceEncrypt', () => {
+    describe('encryptRailFence', () => {
 
         it('encrypts text', () => {
-            expect(railFenceEncrypt('HELLO', 3)).toBe('HOELL')
+            expect(encryptRailFence('HELLO', 3)).toBe('HOELL')
         })
 
         it('handles lowercase input', () => {
-            expect(railFenceEncrypt('hello', 3)).toBe('HOELL')
+            expect(encryptRailFence('hello', 3)).toBe('HOELL')
         })
 
         it('removes spaces', () => {
-            expect(railFenceEncrypt('hell o', 3)).toBe('HOELL')
+            expect(encryptRailFence('hell o', 3)).toBe('HOELL')
         })
 
         it('removes punctuation and numbers', () => {
-            expect(railFenceEncrypt('(H)E!,L"£$%^L&*-_+O=[]@#~/|\\<>?.', 3)).toBe('HOELL')
+            expect(encryptRailFence('(H)E!,L"£$%^L&*-_+O=[]@#~/|\\<>?.', 3)).toBe('HOELL')
         })
 
         it('returns an empty string for empty input', () => {
-            expect(railFenceEncrypt('', 3)).toBe('')
+            expect(encryptRailFence('', 3)).toBe('')
         })
 
         it('returns text unchanged when using one rail', () => {
-            expect(railFenceEncrypt('HELLO', 1)).toBe('HELLO')
+            expect(encryptRailFence('HELLO', 1)).toBe('HELLO')
         })
 
         it('returns text unchanged when using more rails than letters', () => {
-            expect(railFenceEncrypt('ABC', 4)).toBe('ABC')
+            expect(encryptRailFence('ABC', 4)).toBe('ABC')
         })
 
         it('returns text unchanged when the number of rails equals the number of letters', () => {
-            expect(railFenceEncrypt('ABC', 3)).toBe('ABC')
+            expect(encryptRailFence('ABC', 3)).toBe('ABC')
         })
 
         it('encrypts longer text with more rails', () => {
-            expect(railFenceEncrypt('A TEXT THAT IS MUCH LONGER THAN BEFORE', 6)).toBe('ASRETIMETRETUGHOXACNAFTHHONETLB')
+            expect(encryptRailFence('A TEXT THAT IS MUCH LONGER THAN BEFORE', 6)).toBe('ASRETIMETRETUGHOXACNAFTHHONETLB')
         })
     })
 
-    describe('railFenceDecrypt', () => {
+    describe('decryptRailFence', () => {
 
         it('decrypts text', () => {
-            expect(railFenceDecrypt('HOELL', 3)).toBe('HELLO')
+            expect(decryptRailFence('HOELL', 3)).toBe('HELLO')
         })
 
         it('handles lowercase input', () => {
-            expect(railFenceDecrypt('hoell', 3)).toBe('HELLO')
+            expect(decryptRailFence('hoell', 3)).toBe('HELLO')
         })
 
         it('removes spaces', () => {
-            expect(railFenceDecrypt('hoel l', 3)).toBe('HELLO')
+            expect(decryptRailFence('hoel l', 3)).toBe('HELLO')
         })
 
         it('returns an empty string for empty input', () => {
-            expect(railFenceDecrypt('', 3)).toBe('')
+            expect(decryptRailFence('', 3)).toBe('')
         })
 
         it('returns text unchanged when using one rail', () => {
-            expect(railFenceDecrypt('HELLO', 1)).toBe('HELLO')
+            expect(decryptRailFence('HELLO', 1)).toBe('HELLO')
         })
 
         it('returns text unchanged when using more rails than letters', () => {
-            expect(railFenceDecrypt('ABC', 4)).toBe('ABC')
+            expect(decryptRailFence('ABC', 4)).toBe('ABC')
         })
 
         it('returns text unchanged when the number of rails equals the number of letters', () => {
-            expect(railFenceDecrypt('ABC', 3)).toBe('ABC')
+            expect(decryptRailFence('ABC', 3)).toBe('ABC')
         })
 
         it('decrypts longer text with more rails', () => {
-            expect(railFenceDecrypt('ASRETIMETRETUGHOXACNAFTHHONETLB', 6)).toBe('ATEXTTHATISMUCHLONGERTHANBEFORE')
+            expect(decryptRailFence('ASRETIMETRETUGHOXACNAFTHHONETLB', 6)).toBe('ATEXTTHATISMUCHLONGERTHANBEFORE')
         })
     })
 
@@ -178,8 +178,8 @@ describe('Rail Fence Cipher', () => {
         it('decrypts an encrypted message back to the original', () => {
             const original = 'HELLO, WORLD!'
 
-            const encrypted = railFenceEncrypt(original, 3)
-            const decrypted = railFenceDecrypt(encrypted, 3)
+            const encrypted = encryptRailFence(original, 3)
+            const decrypted = decryptRailFence(encrypted, 3)
 
             expect(decrypted).toBe(normaliseText(original))
         })
@@ -187,8 +187,8 @@ describe('Rail Fence Cipher', () => {
         it('decrypts an encrypted message back to the original with a longer length and more rails', () => {
             const original = 'Once upon a time there was a fairy idk'
 
-            const encrypted = railFenceEncrypt(original, 6)
-            const decrypted = railFenceDecrypt(encrypted, 6)
+            const encrypted = encryptRailFence(original, 6)
+            const decrypted = decryptRailFence(encrypted, 6)
 
             expect(decrypted).toBe(normaliseText(original))
         })

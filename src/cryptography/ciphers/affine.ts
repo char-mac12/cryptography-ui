@@ -13,7 +13,7 @@ function validateA(a: number): void {
     }
 }
 
-export function affineEncrypt(
+export function encryptAffine(
     plaintext: string,
     a: number,
     b: number
@@ -33,7 +33,7 @@ export function affineEncrypt(
         .join("");
 }
 
-export function affineDecrypt(
+export function decryptAffine(
     ciphertext: string,
     a: number,
     b: number

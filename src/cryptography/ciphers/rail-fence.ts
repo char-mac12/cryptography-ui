@@ -3,7 +3,7 @@ import { removeNonLetters } from "../utils/alphabet";
 type Rail = Array<string | null>;
 export type Rails = Rail[];
 
-export function railFenceEncrypt(
+export function encryptRailFence(
     plaintext: string,
     numRails: number
 ): string {
@@ -20,7 +20,7 @@ export function railFenceEncrypt(
     return readRailsByRow(rails);
 }
 
-export function railFenceDecrypt(
+export function decryptRailFence(
     ciphertext: string,
     numRails: number
 ): string {
