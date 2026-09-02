@@ -6,14 +6,8 @@ import ToolHeader from '../../../../../Shared/ToolHeader/ToolHeader';
 import ParameterSelect from '../../../Shared/ParameterSelect/ParameterSelect';
 import './TapCodeTool.css';
 
-import {
-    characterToTapCode,
-    tapCodeToCharacter,
-    tapCodeToTaps,
-    tapsToTapCode
-} from '../../../../../../../cryptography/encodings/tap-code';
-
 import TapCodeGrid from './TapCodeGrid/TapCodeGrid';
+import { characterToTapCode, tapCodeToCharacter, tapCodeToTaps, tapsToTapCode } from '../../../../../../../cryptography/encodings/tapCode';
 
 type TapCodeFormat = 'coordinates' | 'taps';
 
