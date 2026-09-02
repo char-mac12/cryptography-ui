@@ -34,8 +34,8 @@ describe('Morse Code', () => {
             expect(characterToMorse('')).toBe('')
         })
 
-        it('preserves punctuation', () => {
-            expect(characterToMorse('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.')).toBe('.-  -...')
+        it('removes punctuation', () => {
+            expect(characterToMorse('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.')).toBe('.- -... -.-.')
         })
     })
 

@@ -43,9 +43,13 @@ export function characterToMorse(text: string) {
     return text
         .toUpperCase()
         .split("")
+        .filter(character => {
+            return character === " "
+                || morseAlphabet[character] !== undefined;
+        })
         .map(character => {
             if (character === " ") return "/";
-            return morseAlphabet[character] ?? "";
+            return morseAlphabet[character];
         })
         .join(" ");
 }
