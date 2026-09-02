@@ -8,7 +8,7 @@ function validateA(a: number): void {
 
     if (gcd(a, ALPHABET_SIZE) !== 1) {
         throw new Error(
-            `a must be coprime with the alphabet size (${ALPHABET_SIZE})`
+            `a must be coprime with the alphabet size ${ALPHABET_SIZE}`
         );
     }
 }
