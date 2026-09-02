@@ -10,6 +10,9 @@ import WorkshopPage from './components/pages/WorkshopPage/WorkshopPage'
 import ReferencePage from './components/pages/ReferencePage/ReferencePage'
 import DetectorPage from './components/pages/DetectorPage/DetectorPage'
 import AnalysisPage from './components/pages/AnalysisPage/AnalysisPage'
+import TimelinePage from './components/pages/ReferencePage/TimelinePage/TimelinePage'
+import DefinitionsPage from './components/pages/ReferencePage/DefinitionsPage/DefinitionsPage'
+import TablesPage from './components/pages/ReferencePage/TablesPage/TablesPage'
 
 function App() {
     return (
@@ -48,6 +51,21 @@ function App() {
                         <Route 
                             path="/reference" 
                             element={<ReferencePage />} 
+                        />
+
+                        <Route 
+                            path="/reference/timeline"
+                            element={<TimelinePage />}
+                        />
+
+                        <Route 
+                            path="/reference/definitions"
+                            element={<DefinitionsPage />}
+                        />
+
+                        <Route 
+                            path="/reference/tables"
+                            element={<TablesPage />}
                         />
 
                         <Route 
