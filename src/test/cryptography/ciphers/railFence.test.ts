@@ -19,7 +19,7 @@ describe('Rail Fence Cipher', () => {
         })
 
         it('removes punctuation and numbers', () => {
-            expect(encryptRailFence('(H)E!,L"£$%^L&*-_+O=[]@#~/|\\<>?.', 3)).toBe('HOELL')
+            expect(encryptRailFence('(H)E!,L"£$%^L&*-_+O=[]@#~/|\\<>?.123', 3)).toBe('HOELL')
         })
 
         it('returns an empty string for empty input', () => {

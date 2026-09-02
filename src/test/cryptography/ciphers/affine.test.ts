@@ -36,7 +36,7 @@ describe('Affine Cipher', () => {
         })
 
         it('removes punctuation and numbers', () => {
-            expect(encryptAffine('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.', 5, 8)).toBe('INS')
+            expect(encryptAffine('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.123', 5, 8)).toBe('INS')
         })
 
         it('returns an empty string for empty input', () => {

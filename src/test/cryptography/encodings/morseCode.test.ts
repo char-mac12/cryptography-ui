@@ -8,15 +8,15 @@ describe('Morse Code', () => {
 
     describe('characterToMorse', () => {
 
-        it('converts letters to Morse code', () => {
+        it('encodes text', () => {
             expect(characterToMorse('ABC')).toBe('.- -... -.-.')
         })
 
-        it('converts lowercase to uppercase Morse code', () => {
+        it('handles lowercase text', () => {
             expect(characterToMorse('abc')).toBe('.- -... -.-.')
         })
 
-        it('converts numbers to Morse code', () => {
+        it('handles numbers', () => {
             expect(characterToMorse('123')).toBe('.---- ..--- ...--')
         })
 
@@ -30,18 +30,18 @@ describe('Morse Code', () => {
             ).toBe('.... . .-.. .-.. --- / .-- --- .-. .-.. -..')
         })
 
-        it('empty text is returned', () => {
+        it('returns an empty string for empty input', () => {
             expect(characterToMorse('')).toBe('')
         })
 
-        it('preserves unsupported characters', () => {
-            expect(characterToMorse('A!B')).toBe('.-  -...')
+        it('preserves punctuation', () => {
+            expect(characterToMorse('(A)B!,C"£$%^&*-_+=[]@#~/|\\<>?.')).toBe('.-  -...')
         })
     })
 
     describe('morseToCharacter', () => {
 
-        it('converts Morse code to letters', () => {
+        it('decodes text', () => {
             expect(morseToCharacter('.- -... -.-.')).toBe('ABC')
         })
 
@@ -61,7 +61,7 @@ describe('Morse Code', () => {
             ).toBe('HELLO WORLD')
         })
 
-        it('empty Morse code is returned', () => {
+        it('returns an empty string for empty input', () => {
             expect(morseToCharacter('')).toBe('')
         })
 
