@@ -4,7 +4,7 @@ import InfoPanel from '../../../../../Shared/InfoPanel/InfoPanel';
 import CipherModeSelector from '../../../CipherShared/CipherModeSelector/CipherModeSelector';
 import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea';
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection';
-import { affineEncrypt, affineDecrypt } from '../../../../../../../cryptography/ciphers/affine';
+import { decryptAffine, encryptAffine } from '../../../../../../../cryptography/ciphers/affine';
 import CipherParameter from '../../../CipherShared/CipherParameter/CipherParameter';
 import NoticeBox from '../../../Shared/NoticeBox/NoticeBox';
 import AffineConversionSection from './AffineConversionSection/AffineConversionSection';
@@ -23,9 +23,9 @@ function AffineTool() {
         setA(newA); 
         
         if (mode === 'encrypt') { 
-            setCiphertext(affineEncrypt(plaintext, newA, b)); 
+            setCiphertext(encryptAffine(plaintext, newA, b)); 
         } else { 
-            setPlaintext(affineDecrypt(ciphertext, newA, b)); 
+            setPlaintext(decryptAffine(ciphertext, newA, b)); 
         } 
     }; 
     
@@ -34,8 +34,8 @@ function AffineTool() {
         setB(newB); 
         
         if (mode === 'encrypt') { 
-            setCiphertext(affineEncrypt(plaintext, a, newB)); 
-        } else { setPlaintext(affineDecrypt(ciphertext, a, newB)); 
+            setCiphertext(encryptAffine(plaintext, a, newB)); 
+        } else { setPlaintext(decryptAffine(ciphertext, a, newB)); 
 
         } 
     };
@@ -44,7 +44,7 @@ function AffineTool() {
         setPlaintext(text);
 
         if (mode === 'encrypt') {
-            setCiphertext(affineEncrypt(text, a, b));
+            setCiphertext(encryptAffine(text, a, b));
         }
     }
 
@@ -52,7 +52,7 @@ function AffineTool() {
         setCiphertext(text);
 
         if (mode === 'decrypt') {
-            setPlaintext(affineDecrypt(text, a, b));
+            setPlaintext(decryptAffine(text, a, b));
         }
     }
 

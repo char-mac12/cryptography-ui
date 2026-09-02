@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { PlayfairStep } from '../playfairLogic';
+import type { PlayfairStep } from '../../../../../../../../cryptography/ciphers/playfair';
 import PlayfairSquare from '../PlayfairSquare/PlayfairSquare';
 import './PlayfairWalkthrough.css';
 import NoticeBox from '../../../../Shared/NoticeBox/NoticeBox';

@@ -5,6 +5,7 @@ import CipherTextArea from '../../../CipherShared/CipherTextArea/CipherTextArea'
 import FrequencySection from '../../../CipherShared/FrequencySection/FrequencySection';
 import AtbashTable from './AtbashTable/AtbashTable';
 import CipherModeSelector from '../../../CipherShared/CipherModeSelector/CipherModeSelector';
+import { atbash } from '../../../../../../../cryptography/ciphers/atbash';
 
 function AtbashTool() {
     const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
@@ -32,21 +33,6 @@ function AtbashTool() {
         setMode((currentMode) =>
             currentMode === 'encrypt' ? 'decrypt' : 'encrypt'
         );
-    };
-
-    const atbash = (text: string) => {
-        return text
-            .toUpperCase()
-            .split("")
-            .map((char) => {
-                if (char < "A" || char > "Z") return char;
-
-                const position = char.charCodeAt(0) - 65;
-                const mirrored = 25 - position;
-
-                return String.fromCharCode(mirrored + 65);
-            })
-            .join("");
     };
 
     const infoPanelText = "Maps each letter to its alphabetic mirror: A↔Z, B↔Y."

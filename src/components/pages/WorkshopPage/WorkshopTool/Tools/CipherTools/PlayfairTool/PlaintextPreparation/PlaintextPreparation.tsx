@@ -1,5 +1,5 @@
 import NoticeBox from '../../../../Shared/NoticeBox/NoticeBox';
-import { preparePlaintextSteps } from '../playfairLogic';
+import { preparePlaintextSteps } from '../../../../../../../../cryptography/ciphers/playfair';
 import './PlaintextPreparation.css'
 
 function PlaintextPreparation({plaintext}: {plaintext: string}) {

@@ -1,5 +1,5 @@
 import NoticeBox from '../../../../Shared/NoticeBox/NoticeBox';
-import { generateKeywordSquare, prepareKeyword } from '../playfairLogic'
+import { generateKeywordSquare, prepareKeyword } from '../../../../../../../../cryptography/ciphers/playfair'
 import PlayfairSquare from '../PlayfairSquare/PlayfairSquare';
 import './KeywordPreparation.css'
 

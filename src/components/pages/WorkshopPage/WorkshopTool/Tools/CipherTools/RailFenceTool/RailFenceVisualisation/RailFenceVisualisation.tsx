@@ -119,9 +119,7 @@ function RailFenceVisualisation({
     );
 
     markRailPositions(
-        emptyRails,
-        numRails,
-        text.length
+        emptyRails
     );
 
     const filledRails = createRails(
@@ -130,9 +128,7 @@ function RailFenceVisualisation({
     );
 
     markRailPositions(
-        filledRails,
-        numRails,
-        text.length
+        filledRails
     );
 
     fillRailsFromCiphertext(
@@ -142,9 +138,7 @@ function RailFenceVisualisation({
 
     const plaintextFromRails =
         readRailsInZigZagOrder(
-            filledRails,
-            numRails,
-            text.length
+            filledRails
         );
 
     return (

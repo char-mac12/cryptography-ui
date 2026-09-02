@@ -3,7 +3,7 @@ import { removeNonLetters } from "../utils/alphabet";
 type Rail = Array<string | null>;
 export type Rails = Rail[];
 
-export function railFenceEncrypt(
+export function encryptRailFence(
     plaintext: string,
     numRails: number
 ): string {
@@ -20,7 +20,7 @@ export function railFenceEncrypt(
     return readRailsByRow(rails);
 }
 
-export function railFenceDecrypt(
+export function decryptRailFence(
     ciphertext: string,
     numRails: number
 ): string {
@@ -32,10 +32,10 @@ export function railFenceDecrypt(
 
     const rails = createRails(numRails, text.length);
 
-    markRailPositions(rails, numRails, text.length);
+    markRailPositions(rails);
     fillRailsFromCiphertext(rails, text);
 
-    return readRailsInZigZagOrder(rails, numRails, text.length);
+    return readRailsInZigZagOrder(rails);
 }
 
 export function createRails(numRails: number, length: number): Rails {
@@ -77,12 +77,13 @@ export function readRailsByRow(rails: Rails): string {
 }
 
 export function markRailPositions(
-    rails: Rails, 
-    numRails: number, 
-    length: number
+    rails: Rails
 ): void {
     let rail = 0;
     let direction = 1; // move down = 1, move up = -1
+
+    const numRails = rails.length
+    const length = rails[0].length
 
     for (let i = 0; i < length; i++) {
         rails[rail][i] = "";
@@ -111,13 +112,14 @@ export function fillRailsFromCiphertext(rails: Rails, text: string): void {
 }
 
 export function readRailsInZigZagOrder(
-    rails: Rails, 
-    numRails: number, 
-    length: number
+    rails: Rails
 ): string {
     let plaintext = "";
     let rail = 0;
     let direction = 1;
+
+    const numRails = rails.length
+    const length = rails[0].length
 
     for (let i = 0; i < length; i++) {
         const char = rails[rail][i];

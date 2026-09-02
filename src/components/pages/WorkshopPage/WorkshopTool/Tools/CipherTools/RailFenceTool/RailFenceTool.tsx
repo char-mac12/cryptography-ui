@@ -4,7 +4,7 @@ import CipherModeSelector from "../../../CipherShared/CipherModeSelector/CipherM
 import CipherParameter from "../../../CipherShared/CipherParameter/CipherParameter";
 import CipherTextArea from "../../../CipherShared/CipherTextArea/CipherTextArea";
 import FrequencySection from "../../../CipherShared/FrequencySection/FrequencySection";
-import { railFenceDecrypt, railFenceEncrypt } from "../../../../../../../cryptography/ciphers/rail-fence";
+import { decryptRailFence, encryptRailFence } from "../../../../../../../cryptography/ciphers/rail-fence";
 import RailFenceVisualisation from "./RailFenceVisualisation/RailFenceVisualisation";
 import { removeNonLetters } from "../../../../../../../cryptography/utils/alphabet";
 import RailFenceBruteForceDecrypter from "./RailFenceBruteForceDecrypter/RailFenceBruteForceDecrypter";
@@ -22,9 +22,9 @@ function RailFenceTool() {
         setRails(newRails); 
         
         if (mode === 'encrypt') { 
-            setCiphertext(railFenceEncrypt(plaintext, newRails)); 
+            setCiphertext(encryptRailFence(plaintext, newRails)); 
         } else { 
-            setPlaintext(railFenceDecrypt(ciphertext, newRails)); 
+            setPlaintext(decryptRailFence(ciphertext, newRails)); 
         } 
     }; 
     
@@ -32,7 +32,7 @@ function RailFenceTool() {
         setPlaintext(text);
 
         if (mode === 'encrypt') {
-            setCiphertext(railFenceEncrypt(text, rails));
+            setCiphertext(encryptRailFence(text, rails));
         }
     }
 
@@ -40,7 +40,7 @@ function RailFenceTool() {
         setCiphertext(text);
 
         if (mode === 'decrypt') {
-            setPlaintext(railFenceDecrypt(text, rails));
+            setPlaintext(decryptRailFence(text, rails));
         }
     }
 
