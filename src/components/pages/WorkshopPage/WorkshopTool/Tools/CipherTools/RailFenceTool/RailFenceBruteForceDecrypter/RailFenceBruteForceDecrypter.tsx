@@ -1,5 +1,5 @@
 import ToolHeader from '../../../../../../Shared/ToolHeader/ToolHeader';
-import { railFenceDecrypt } from '../../../../../../../../cryptography/ciphers/rail-fence';
+import { decryptRailFence } from '../../../../../../../../cryptography/ciphers/rail-fence';
 import './RailFenceBruteForceDecrypter.css';
 import CipherParameter from '../../../../CipherShared/CipherParameter/CipherParameter';
 import { useState } from 'react';
@@ -59,7 +59,7 @@ function RailFenceBruteForceDecrypter({
 
                 return {
                     rails,
-                    text: railFenceDecrypt(
+                    text: decryptRailFence(
                         ciphertext,
                         rails
                     ),
