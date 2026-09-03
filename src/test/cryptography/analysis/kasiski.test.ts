@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { findRepeatedNGrams, getDistances, getFactors, kasiskiExamination } from '../../../cryptography/analysis//kasiski'
 
-describe('kasiski', () => {
+describe('Kasiski', () => {
 
     describe('findRepeatedNGrams', () => {
 
