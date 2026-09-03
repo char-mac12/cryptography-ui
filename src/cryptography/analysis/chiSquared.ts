@@ -26,10 +26,15 @@ export function analyseChiSquared(text: string): ChiSquaredResult {
     let score = 0;
 
     for (const letter in expectedCounts) {
-        const observed = observedCounts[letter] || 0;
-        const expected = expectedCounts[letter];
+        const observed = observedCounts[letter] ?? 0;
+        const rawExpected = expectedCounts[letter];
+        
+        // Safely narrow unknown type to number
+        const expected = typeof rawExpected === 'number' ? rawExpected : Number(rawExpected);
 
-        score += ((observed - expected) ** 2) / expected;
+        if (expected > 0) {
+            score += ((observed - expected) ** 2) / expected;
+        }
     }
 
     return {

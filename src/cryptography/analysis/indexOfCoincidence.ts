@@ -1,4 +1,4 @@
-import { removeNonLetters } from "../utils/alphabet";
+import { normaliseText } from "../utils/textNormaliser";
 import { getLetterFrequencies } from "./characterFrequency";
 
 export interface IndexOfCoincidenceResult {
@@ -10,8 +10,9 @@ export interface IndexOfCoincidenceResult {
 export function calculateIndexOfCoincidence(
     text: string
 ): IndexOfCoincidenceResult {
-    const letterFrequencies = getLetterFrequencies(text);
-    const totalLetters = removeNonLetters(text).length;
+    const cleanedText = normaliseText(text);
+    const totalLetters = cleanedText.length;
+    const letterFrequencies = getLetterFrequencies(cleanedText);
 
     // IC is undefined when there are fewer than two letters.
     if (totalLetters < 2) {
@@ -22,11 +23,10 @@ export function calculateIndexOfCoincidence(
         };
     }
 
-    const numerator = Object.values(letterFrequencies)
-        .reduce(
-            (sum, frequency) => sum + frequency * (frequency - 1),
-            0
-        );
+    const numerator = Object.values(letterFrequencies).reduce(
+        (sum, frequency) => sum + frequency * (frequency - 1),
+        0
+    );
 
     const denominator = totalLetters * (totalLetters - 1);
 

@@ -1,4 +1,4 @@
-import type { Tool } from '../../../../types/Tool'
+import type { Tool } from '../../../../types/tool'
 import CaesarTool from "./Tools/CipherTools/CaesarTool/CaesarTool";
 import './WorkshopTool.css'
 import AtbashTool from "./Tools/CipherTools/AtbashTool/AtbashTool";

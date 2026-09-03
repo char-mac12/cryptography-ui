@@ -1,4 +1,4 @@
-import { normaliseText } from "../utils/textNormaliser";
+import { normaliseSpaces, normaliseText } from "../utils/textNormaliser";
 
 export function getTextStatistics(text: string): TextStatistics {
     let letters = 0;
@@ -40,7 +40,7 @@ export function getTextStatistics(text: string): TextStatistics {
         uppercase,
         lowercase,
         uniqueLetters: [...uniqueLetters],
-        onlyLetters: letters === text.length
+        onlyLetters: text.length > 0 && letters === text.length
     };
 }
 
@@ -58,21 +58,25 @@ export interface TextStatistics {
 
 export function analyseStructure(text: string) {
     const stats = getTextStatistics(text);
+    const normalisedText = normaliseSpaces(text);
+
+    const length = stats.length || 1;
+    const letters = stats.letters || 1;
 
     return {
         length: stats.length,
 
-        letterRatio: stats.letters / stats.length,
-        digitRatio: stats.digits / stats.length,
-        spaceRatio: stats.spaces / stats.length,
-        punctuationRatio: stats.punctuation / stats.length,
-        uppercaseRatio: stats.uppercase / stats.letters,
-        lowercaseRatio: stats.lowercase / stats.letters,
+        letterRatio: stats.letters / length,
+        digitRatio: stats.digits / length,
+        spaceRatio: stats.spaces / length,
+        punctuationRatio: stats.punctuation / length,
+        uppercaseRatio: stats.uppercase / letters,
+        lowercaseRatio: stats.lowercase / letters,
 
         hasSpaces: stats.spaces > 0,
         hasNumbers: stats.digits > 0,
         hasSymbols: stats.punctuation > 0,
-        characterSet: [...new Set(text)].join("")
+        characterSet: [...new Set(normalisedText)].join("")
     };
 }
 
@@ -88,10 +92,20 @@ export function calculateVowelRatio(text: string): number {
     return vowels / cleanText.length;
 }
 
-import { removeNonLetters } from "../utils/alphabet";
-
 export function countRepeatedCharacters(text: string): Record<string, number> {
-    const cleanText = removeNonLetters(text);
+    const counts: Record<string, number> = {};
+
+    for (const char of text) {
+        counts[char] = (counts[char] || 0) + 1;
+    }
+
+    return Object.fromEntries(
+        Object.entries(counts).filter(([, count]) => count > 1)
+    );
+}
+
+export function countRepeatedLetters(text: string): Record<string, number> {
+    const cleanText = normaliseText(text);
     const counts: Record<string, number> = {};
 
     for (const char of cleanText) {
