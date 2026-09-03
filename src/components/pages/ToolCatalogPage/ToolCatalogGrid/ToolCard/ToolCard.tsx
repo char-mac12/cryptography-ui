@@ -32,7 +32,7 @@ function ToolCard({ tool }: { tool: Tool} ) {
             <p className="tool-origin">{tool.origin}</p>
             <p className="tool-description">{tool.description}</p>
             <div className="tool-input-types">
-                {tool.inputTypes.map((type) => (
+                {tool.inputTypes.map((type: string) => (
                     <InputTypeBadge key={type}>
                         {type}
                     </InputTypeBadge>
@@ -41,7 +41,7 @@ function ToolCard({ tool }: { tool: Tool} ) {
 
             <div className="tool-card-footer">
                 <div className="tool-tags">
-                    {tool.tags.map((tag) => (
+                    {tool.tags.map((tag: string) => (
                         <ToolTag key={tag}>
                             {tag}
                         </ToolTag>
