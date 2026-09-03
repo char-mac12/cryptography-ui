@@ -28,10 +28,10 @@ export function getDistances(positions: number[]): number[] {
     return distances;
 }
 
-export function getFactors(number: number): number[] {
+export function getFactors(number: number, maxFactor: number = 20): number[] {
     const factors: number[] = [];
 
-    for (let i = 2; i <= number; i++) {
+    for (let i = 2; i <= Math.min(number, maxFactor); i++) {
         if (number % i === 0) {
             factors.push(i);
         }
@@ -40,7 +40,11 @@ export function getFactors(number: number): number[] {
     return factors;
 }
 
-export function kasiskiExamination(text: string, n: number): Record<number, number> {
+export function kasiskiExamination(
+    text: string, 
+    n: number = 3, 
+    maxFactor: number = 20
+): Record<number, number> {
     const repeated = findRepeatedNGrams(text, n);
     const factorCounts: Record<number, number> = {};
 
@@ -48,7 +52,7 @@ export function kasiskiExamination(text: string, n: number): Record<number, numb
         const distances = getDistances(repeated[gram]);
 
         for (const distance of distances) {
-            const factors = getFactors(distance);
+            const factors = getFactors(distance, maxFactor);
 
             for (const factor of factors) {
                 factorCounts[factor] = (factorCounts[factor] || 0) + 1;
