@@ -5,7 +5,7 @@ import ToolTag from "./ToolTag/ToolTag"
 import InputTypeBadge from "./InputTypeBadge/InputTypeBadge"
 import OpenToolButton from "./OpenToolButton/OpenToolButton"
 import './ToolCard.css'
-import type { Tool } from "../../../../../types/Tool";
+import type { Tool } from "../../../../../types/tool";
 
 function ToolCard({ tool }: { tool: Tool} ) {
     const navigate = useNavigate();
