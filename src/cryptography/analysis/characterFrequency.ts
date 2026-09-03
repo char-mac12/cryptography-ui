@@ -1,8 +1,7 @@
-import { removeNonLetters } from "../utils/alphabet";
+import { normaliseText } from "../utils/textNormaliser";
 
 export function getLetterFrequencies(text: string): Record<string, number> {
-    const letters = removeNonLetters(text);
-
+    const letters = normaliseText(text);
     const frequencies: Record<string, number> = {};
 
     for (const letter of letters) {
@@ -14,7 +13,9 @@ export function getLetterFrequencies(text: string): Record<string, number> {
 
 export function getPercentageFrequencies(text: string): Record<string, number> {
     const frequencies = getLetterFrequencies(text);
-    const total = Object.values(frequencies).reduce((sum, count) => sum + count, 0);
+    const total = Object.values(frequencies).reduce<number>((sum, count) => sum + count, 0);
+
+    if (total === 0) return {};
 
     const percentages: Record<string, number> = {};
 
@@ -22,17 +23,19 @@ export function getPercentageFrequencies(text: string): Record<string, number> {
         percentages[letter] = (frequencies[letter] / total) * 100;
     }
 
-    return percentages
+    return percentages;
 }
 
 export function getLetterProbabilities(text: string): Record<string, number> {
-    const letter_frequencies = getLetterFrequencies(text);
-    const total_letters = removeNonLetters(text).length;
+    const frequencies = getLetterFrequencies(text);
+    const total = Object.values(frequencies).reduce<number>((sum, count) => sum + count, 0);
+
+    if (total === 0) return {};
 
     const probabilities: Record<string, number> = {};
 
-    for (const letter in letter_frequencies) {
-        probabilities[letter] = letter_frequencies[letter] / total_letters;
+    for (const letter in frequencies) {
+        probabilities[letter] = frequencies[letter] / total;
     }
 
     return probabilities;
