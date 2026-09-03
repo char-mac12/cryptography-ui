@@ -61,7 +61,7 @@ describe('quadgramScore', () => {
         it('handles unseen quadgrams gracefully using the fallback floor penalty', () => {
             const score = quadgramScore('JXQZ')
 
-            expect(score).toBe(-10)
+            expect(score).toBe(-6.0)
             expect(score).not.toBeNaN()
         })
 

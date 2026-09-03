@@ -2,6 +2,8 @@ import { getNGrams } from "./nGrams";
 import { normaliseText } from "../utils/textNormaliser";
 import { ENGLISH_QUADGRAMS } from "./quadgrams";
 
+const FLOOR_LOG_PROB = -6.0;
+
 export function quadgramScore(text: string): number {
     const cleanText = normaliseText(text);
     
@@ -14,7 +16,7 @@ export function quadgramScore(text: string): number {
     let score = 0;
 
     for (const gram of grams) {
-        score += ENGLISH_QUADGRAMS[gram] ?? -10;
+        score += ENGLISH_QUADGRAMS[gram] ?? FLOOR_LOG_PROB;
     }
 
     return score / grams.length; // divide to prevent length bias
