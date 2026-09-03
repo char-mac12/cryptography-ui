@@ -1,9 +1,14 @@
 import { getNGrams } from "./nGrams";
-import { removeNonLetters } from "../utils/alphabet";
+import { normaliseText } from "../utils/textNormaliser";
 import { ENGLISH_QUADGRAMS } from "./quadgrams";
 
 export function quadgramScore(text: string): number {
-    const cleanText = removeNonLetters(text);
+    const cleanText = normaliseText(text);
+    
+    if (cleanText.length < 4) {
+        return -Infinity;
+    }
+
     const grams = getNGrams(cleanText, 4);
 
     let score = 0;
@@ -12,5 +17,5 @@ export function quadgramScore(text: string): number {
         score += ENGLISH_QUADGRAMS[gram] ?? -10;
     }
 
-    return score;
+    return score / grams.length; // divide to prevent length bias
 }
