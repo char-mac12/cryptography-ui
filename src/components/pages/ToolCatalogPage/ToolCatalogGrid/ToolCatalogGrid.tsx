@@ -1,6 +1,6 @@
 import ToolCard from './ToolCard/ToolCard';
 import "./ToolCatalogGrid.css"
-import type { Tool } from '../../../../types/Tool';
+import type { Tool } from '../../../../types/tool';
 
 function ToolCatalogGrid({ tools }: { tools: Tool[] }) {
   return (

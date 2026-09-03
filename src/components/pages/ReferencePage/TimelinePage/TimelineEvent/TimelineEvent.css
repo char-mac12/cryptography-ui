@@ -1,0 +1,15 @@
+.timeline-event {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.timeline-event.left {
+    justify-content: flex-start;
+    padding-right: calc(50% + 2rem);
+}
+
+.timeline-event.right {
+    justify-content: flex-end;
+    padding-left: calc(50% + 2rem);
+}
