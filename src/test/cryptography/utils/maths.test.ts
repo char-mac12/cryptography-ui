@@ -37,8 +37,8 @@ describe('Math Utilities for Cryptography', () => {
         it('finds the correct modular inverse', () => {
             // 3 * 9 = 27 ≡ 1 (mod 26)
             expect(modInverse(3, 26)).toBe(9);
-            // 5 * 7 = 35 ≡ 1 (mod 11)
-            expect(modInverse(5, 11)).toBe(7);
+            // 5 * 9 = 45 ≡ 1 (mod 11)
+            expect(modInverse(5, 11)).toBe(9);
         });
 
         it('throws an error if no modular inverse exists', () => {
