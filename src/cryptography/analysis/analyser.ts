@@ -1,54 +1,9 @@
-import { getLetterFrequencies } from "./characterFrequency";
 import { calculateEnglishScore } from "./englishScore";
 import { calculateEntropy } from "./entropy";
 import { calculateIndexOfCoincidence } from "./indexOfCoincidence";
 import { findRepeatedSequences, nGramFrequencies } from "./nGrams";
 import { normaliseText } from "../utils/textNormaliser";
 import { analyseStructure, calculateVowelRatio, countRepeatedCharacters, getTextStatistics, type TextStatistics } from "./textStatistics";
-
-export function analyseText(text: string): TextAnalysis {
-    const normalised = normaliseText(text);
-
-    return {
-        original: text,
-        normalised,
-
-        statistics: getTextStatistics(text),
-
-        frequencies: {
-            letters: getLetterFrequencies(text)
-        },
-
-        entropy: {
-            overall: calculateEntropy(text),
-            lettersOnly: calculateEntropy(normalised)
-        },
-
-        coincidence: {
-            indexOfCoincidence: calculateIndexOfCoincidence(normalised).score,
-            letterCount: calculateIndexOfCoincidence(normalised).letterCount,
-            letterFrequencies: calculateIndexOfCoincidence(normalised).letterFrequencies,
-            repeatedCharacters: countRepeatedCharacters(normalised)
-        },
-
-        ngrams: {
-            bigrams: nGramFrequencies(normalised, 2),
-            trigrams: nGramFrequencies(normalised, 3),
-            quadgrams: nGramFrequencies(normalised, 4)
-        },
-
-        patterns: {
-            repeatedSequences: findRepeatedSequences(normalised, 3)
-        },
-
-        language: {
-            vowelRatio: calculateVowelRatio(normalised),
-            englishScore: calculateEnglishScore(normalised)
-        },
-
-        structure: analyseStructure(text)
-    };
-}
 
 export interface TextAnalysis {
     original: string;
@@ -102,5 +57,50 @@ export interface TextAnalysis {
         hasNumbers: boolean;
         hasSymbols: boolean;
         characterSet: string;
+    };
+}
+
+export function analyseText(text: string): TextAnalysis {
+    const normalised = normaliseText(text);
+    const iocResult = calculateIndexOfCoincidence(normalised);
+
+    return {
+        original: text,
+        normalised,
+
+        statistics: getTextStatistics(text),
+
+        frequencies: {
+            letters: iocResult.letterFrequencies
+        },
+
+        entropy: {
+            overall: calculateEntropy(text),
+            lettersOnly: calculateEntropy(normalised)
+        },
+
+        coincidence: {
+            indexOfCoincidence: iocResult.score,
+            letterCount: iocResult.letterCount,
+            letterFrequencies: iocResult.letterFrequencies,
+            repeatedCharacters: countRepeatedCharacters(normalised)
+        },
+
+        ngrams: {
+            bigrams: nGramFrequencies(normalised, 2),
+            trigrams: nGramFrequencies(normalised, 3),
+            quadgrams: nGramFrequencies(normalised, 4)
+        },
+
+        patterns: {
+            repeatedSequences: findRepeatedSequences(normalised, 3)
+        },
+
+        language: {
+            vowelRatio: calculateVowelRatio(normalised),
+            englishScore: calculateEnglishScore(normalised)
+        },
+
+        structure: analyseStructure(text)
     };
 }
