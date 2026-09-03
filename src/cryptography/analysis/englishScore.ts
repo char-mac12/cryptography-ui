@@ -50,23 +50,20 @@ export function analyseEnglishScore(
     const vowelRatioScore = Math.max(0, 1 - (vowelDeviation / 0.20));
 
     // 2. Quadgram Normalisation
-    // Real English: ~ -4.0 to -4.8 -> Maps to ~1.0
-    // Random gibberish: ~ -7.0 to -10.0 -> Maps to ~0.0
     const FLOOR = -7.5;
     const CEILING = -4.0;
     
-    // Linear scale between FLOOR and CEILING
     const rawNorm = Math.min(1, Math.max(0, (avgLogProb - FLOOR) / (CEILING - FLOOR)));
-    
-    // Square term to drop non-English text fast while keeping valid English high
     const quadgramNormalised = Math.pow(rawNorm, 2);
 
-    // 3. Chi-Squared Normalisation (English < 4.0; Ciphertext > 12.0)
+    // 3. Chi-Squared Normalisation
     const chiSquaredNormalised = Math.min(1, Math.max(0, (12.0 - chiPerChar) / 12.0));
 
     // 4. Optional Dictionary Matching
     let dictionaryScore = 0;
-    if (dictionary && dictionary.size > 0) {
+    const hasDictionary = Boolean(dictionary && dictionary.size > 0);
+
+    if (hasDictionary && dictionary) {
         const words = text.split(/\s+/).filter(w => w.length > 0);
         if (words.length > 0) {
             const matches = words.reduce((acc, word) => {
@@ -78,21 +75,14 @@ export function analyseEnglishScore(
     }
 
     // 5. Weighted Final Score Computation
-    let overallScore = 0;
-    if (dictionary && dictionary.size > 0) {
-        overallScore = (
-            quadgramNormalised * 40 +
-            chiSquaredNormalised * 25 +
-            dictionaryScore * 20 +
-            vowelRatioScore * 15
-        );
-    } else {
-        overallScore = (
-            quadgramNormalised * 60 +
-            chiSquaredNormalised * 25 +
-            vowelRatioScore * 15
-        );
-    }
+    const overallScore = hasDictionary
+        ? quadgramNormalised * 40 +
+          chiSquaredNormalised * 25 +
+          dictionaryScore * 20 +
+          vowelRatioScore * 15
+        : quadgramNormalised * 60 +
+          chiSquaredNormalised * 25 +
+          vowelRatioScore * 15;
 
     if (debug) {
         console.log(`\n--- DEBUG: "${text}" ---`);
