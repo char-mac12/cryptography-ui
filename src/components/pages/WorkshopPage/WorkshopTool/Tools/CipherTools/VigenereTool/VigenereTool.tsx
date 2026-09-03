@@ -16,10 +16,12 @@ function VigenereTool() {
     const [plaintext, setPlaintext] = useState("");
     const [ciphertext, setCiphertext] = useState("");
 
+    const hasValidKeyword = keyword.trim().length > 0;
+
     const handlePlaintextChange = (text: string) => {
         setPlaintext(text);
 
-        if (mode === 'encrypt') {
+        if (mode === 'encrypt' && hasValidKeyword) {
             setCiphertext(encryptVigenere(text, keyword));
         }
     }
@@ -27,7 +29,7 @@ function VigenereTool() {
     const handleCiphertextChange = (text: string) => {
         setCiphertext(text);
 
-        if (mode === 'decrypt') {
+        if (mode === 'decrypt' && hasValidKeyword) {
             setPlaintext(decryptVigenere(text, keyword));
         }
     }
@@ -39,14 +41,14 @@ function VigenereTool() {
     };
 
     const displayedPlaintext =
-        mode === "decrypt"
+        mode === "decrypt" && hasValidKeyword
             ? decryptVigenere(ciphertext, keyword)
             : plaintext;
 
     const displayedCiphertext =
-        mode === "encrypt"
+        mode === "encrypt" && hasValidKeyword
             ? encryptVigenere(plaintext, keyword)
-            : plaintext;
+            : ciphertext;
 
     const infoPanelText = "A polyalphabetic substitution cipher which uses a repeating keyword to shift letters by different amounts in the alphabet."
     const frequencyNoticeText = "Notice: When a Vigenère Cipher encrypts text, each letter may be shifted by a different amount depending on the keyword. This spreads letter frequencies across multiple ciphertext letters, making patterns much harder to detect than in monoalphabetic ciphers."
