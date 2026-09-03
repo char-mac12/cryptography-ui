@@ -1,4 +1,4 @@
-import type { Analysis } from '../../../../types/Analysis';
+import type { Analysis } from '../../../../types/analysis';
 import './AnalysisTool.css';
 import ChiSquaredAnalysis from './Tools/ChiSquaredAnalysis/ChiSquaredAnalysis';
 import Entropy from './Tools/Entropy/Entropy';
